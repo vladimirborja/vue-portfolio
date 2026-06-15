@@ -2,7 +2,7 @@
 import { ref, onMounted } from 'vue'
 
 const displayText = ref('')
-const fullText = 'Full-Stack Developer.'
+const fullText = 'Aspiring Full-Stack Developer.'
 let i = 0
 
 onMounted(() => {
@@ -31,8 +31,9 @@ onMounted(() => {
             </h2>
 
             <p class="text-gray-400 text-lg max-w-xl leading-relaxed mb-10">
-                I build clean, fast, and modern web applications. Passionate about open source,
-                developer tooling, and shipping things that matter.
+                Fresh Bachelor of Science in Information Technology Major in Web Development graduate passionate about
+                building clean, fast, and modern
+                web applications. Eager to grow as a developer and contribute to real-world projects.
             </p>
 
             <div class="flex gap-4 flex-wrap">
