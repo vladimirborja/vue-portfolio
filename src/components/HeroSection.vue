@@ -1,4 +1,17 @@
 <script setup>
+import { ref, onMounted } from 'vue'
+
+const displayText = ref('')
+const fullText = 'Full-Stack Developer.'
+let i = 0
+
+onMounted(() => {
+    const interval = setInterval(() => {
+        displayText.value += fullText[i]
+        i++
+        if (i >= fullText.length) clearInterval(interval)
+    }, 80)
+})
 </script>
 
 <template>
@@ -13,8 +26,8 @@
                 Hi, I'm <span class="text-green-400">Karl.</span>
             </h1>
 
-            <h2 class="text-3xl md:text-5xl font-bold text-gray-500 mb-8">
-                Full-Stack Developer.
+            <h2 class="text-3xl md:text-5xl font-bold text-gray-500 mb-8 min-h-[3rem]">
+                {{ displayText }}<span class="animate-pulse text-green-400">_</span>
             </h2>
 
             <p class="text-gray-400 text-lg max-w-xl leading-relaxed mb-10">
