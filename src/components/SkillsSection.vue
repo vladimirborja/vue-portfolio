@@ -1,9 +1,9 @@
 <script setup>
 const skills = [
-    { category: 'Frontend', items: ['Vue 3', 'React', 'TailwindCSS', 'HTML/CSS'] },
-    { category: 'Backend', items: ['Node.js', 'Express', 'REST APIs', 'PostgreSQL'] },
-    { category: 'Tools', items: ['Git', 'GitHub', 'Vite', 'VS Code'] },
-    { category: 'Learning', items: ['TypeScript', 'Docker', 'AWS', 'Next.js'] },
+    { category: 'Frontend', items: ['HTML', 'CSS', 'JavaScript', 'Vue', 'TailwindCSS'] },
+    { category: 'Backend', items: ['PHP', 'Laravel', 'MySQL'] },
+    { category: 'CMS', items: ['WordPress'] },
+    { category: 'Design', items: ['Figma', 'Canva'] },
 ]
 </script>
 
