@@ -54,19 +54,13 @@ const projects = [
                         </div>
                     </div>
                     <div class="flex gap-3 mt-2">
-
-                        :href="project.repo"
-                        target="_blank"
-                        class="font-mono-custom text-xs text-gray-500 hover:text-green-400 transition-colors"
-                        >
-                        / repo
+                        <a :href="project.repo" target="_blank"
+                            class="font-mono-custom text-xs text-gray-500 hover:text-green-400 transition-colors">
+                            / repo
                         </a>
-
-                        :href="project.live"
-                        target="_blank"
-                        class="font-mono-custom text-xs text-gray-500 hover:text-green-400 transition-colors"
-                        >
-                        / live
+                        <a :href="project.live" target="_blank"
+                            class="font-mono-custom text-xs text-gray-500 hover:text-green-400 transition-colors">
+                            / live
                         </a>
                     </div>
                 </div>

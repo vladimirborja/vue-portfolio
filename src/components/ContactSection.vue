@@ -17,23 +17,15 @@ const socials = [
                 Drop me a message and I'll get back to you within 24 hours.
             </p>
 
-
-            :href="`mailto:${email}`"
-            class="font-mono-custom text-xl text-green-400 hover:text-green-300 transition-colors duration-200 border-b
-            border-green-800 pb-1"
-            >
-            {{ email }}
+            <a :href="`mailto:${email}`" class="font-mono-custom text-xl text-green-400 hover:text-green-300 transition-colors duration-200 border-b
+            border-green-800 pb-1">
+                {{ email }}
             </a>
 
             <div class="flex gap-6 mt-10">
-
-                v-for="social in socials"
-                :key="social.label"
-                :href="social.url"
-                target="_blank"
-                class="font-mono-custom text-sm text-gray-600 hover:text-green-400 transition-colors duration-200"
-                >
-                / {{ social.label }}
+                <a v-for="social in socials" :key="social.label" :href="social.url" target="_blank"
+                    class="font-mono-custom text-sm text-gray-600 hover:text-green-400 transition-colors duration-200">
+                    / {{ social.label }}
                 </a>
             </div>
 
