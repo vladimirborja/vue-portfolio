@@ -12,7 +12,7 @@ const projects = [
 </script>
 
 <template>
-    <section id="projects" class="py-24 border-t border-green-900/40">
+    <section id="projects" v-scroll-reveal class="py-24 border-t border-green-900/40">
         <div class="max-w-5xl mx-auto px-6">
 
             <p class="font-mono-custom text-green-500 text-sm mb-2 tracking-widest">&gt; ls ./projects</p>
@@ -34,7 +34,7 @@ const projects = [
                         <div>
                             <div class="flex items-center justify-between mb-3">
                                 <span class="font-mono-custom text-green-400 font-bold text-sm">{{ project.name
-                                    }}</span>
+                                }}</span>
                                 <span
                                     class="font-mono-custom text-xs px-2 py-0.5 bg-green-950/50 text-green-600 border border-green-900/50 rounded">
                                     {{ project.status }}

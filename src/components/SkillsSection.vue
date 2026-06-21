@@ -8,7 +8,7 @@ const skills = [
 </script>
 
 <template>
-    <section id="skills" class="py-24 border-t border-green-900/40">
+    <section id="skills" v-scroll-reveal class="py-24 border-t border-green-900/40">
         <div class="max-w-5xl mx-auto px-6">
 
             <p class="font-mono-custom text-green-500 text-sm mb-2 tracking-widest">&gt; skills --list</p>

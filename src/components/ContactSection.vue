@@ -11,8 +11,6 @@ const form = ref({ name: '', email: '', message: '' })
 const submitted = ref(false)
 
 function handleSubmit() {
-    // Currently frontend-only — no backend wired up yet.
-    // For now this just confirms the form was filled and resets it.
     submitted.value = true
     setTimeout(() => { submitted.value = false }, 4000)
     form.value = { name: '', email: '', message: '' }
@@ -20,7 +18,7 @@ function handleSubmit() {
 </script>
 
 <template>
-    <section id="contact" class="py-24 border-t border-green-900/40">
+    <section id="contact" v-scroll-reveal class="py-24 border-t border-green-900/40">
         <div class="max-w-5xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-12">
 
             <div>
