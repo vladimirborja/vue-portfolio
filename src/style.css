@@ -23,9 +23,22 @@ body {
 }
 
 .hero-bg {
-  background-image: linear-gradient(rgba(255,255,255,0.85), rgba(255,255,255,0.95)), url('/src/assets/hero-bg.jpg');
+  background-image: linear-gradient(rgba(255,255,255,0.85), rgba(255,255,255,0.95)), url('./assets/images/hero-bg.png');
 }
 
 .dark .hero-bg {
-  background-image: linear-gradient(rgba(10,10,10,0.85), rgba(10,10,10,0.95)), url('/src/assets/hero-bg.jpg');
+  background-image: linear-gradient(rgba(10,10,10,0.85), rgba(10,10,10,0.95)), url('./assets/images/hero-bg.png');
+}
+
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 12s linear infinite;
 }

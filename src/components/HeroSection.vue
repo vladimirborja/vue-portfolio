@@ -22,17 +22,34 @@ function scrollTo(id) {
     <section id="hero" class="relative min-h-screen flex items-center pt-14 overflow-hidden z-0">
         <!-- Light/Dark dynamic background layer with smooth transition -->
         <div class="absolute inset-0 -z-10 bg-cover bg-center transition-all duration-300 hero-bg"></div>
-        <div class="max-w-5xl mx-auto px-6 py-24 w-full">
 
-            <h1 class="text-5xl md:text-7xl font-bold text-gray-900 dark:text-white leading-tight mb-2">
-                Hi, I'm <span class="text-green-600 dark:text-green-400">Karl.</span>
+        <!-- Modern ambient glow bubbles for depth -->
+        <div
+            class="absolute top-1/4 left-1/4 -translate-x-1/2 -translate-y-1/2 w-[300px] md:w-[400px] h-[300px] md:h-[400px] rounded-full bg-green-500/10 dark:bg-green-500/5 blur-[80px] md:blur-[120px] -z-10 animate-pulse pointer-events-none">
+        </div>
+        <div class="absolute bottom-1/4 right-1/4 translate-x-1/2 translate-y-1/2 w-[350px] md:w-[500px] h-[350px] md:h-[500px] rounded-full bg-emerald-600/10 dark:bg-emerald-950/20 blur-[100px] md:blur-[150px] -z-10 animate-pulse pointer-events-none"
+            style="animation-duration: 8s"></div>
+
+        <div class="max-w-5xl mx-auto px-6 py-24 w-full relative">
+
+            <!-- Dynamic badge subheader -->
+            <div
+                class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-green-200/60 dark:border-green-900/40 bg-green-500/5 dark:bg-green-500/10 text-green-700 dark:text-green-400 font-mono-custom text-xs uppercase tracking-wider mb-6">
+                <span class="w-1.5 h-1.5 rounded-full bg-green-600 dark:bg-green-500 animate-ping"></span>
+                Karl Vladimir B. Borja
+            </div>
+
+            <h1 class="text-5xl md:text-7xl font-bold text-gray-900 dark:text-white leading-tight mb-2 tracking-tight">
+                Hi, I'm <span
+                    class="bg-gradient-to-r from-green-600 to-emerald-500 dark:from-green-400 dark:to-emerald-300 bg-clip-text text-transparent">Karl.</span>
             </h1>
 
-            <h2 class="text-3xl md:text-5xl font-bold text-gray-600 dark:text-gray-500 mb-8 min-h-[3rem]">
+            <h2
+                class="text-3xl md:text-5xl font-bold text-gray-600 dark:text-gray-400 mb-8 min-h-[3rem] tracking-tight">
                 {{ displayText }}<span class="animate-pulse text-green-600 dark:text-green-400">_</span>
             </h2>
 
-            <p class="text-gray-700 dark:text-gray-400 text-lg max-w-xl leading-relaxed mb-10">
+            <p class="text-gray-700 dark:text-gray-400 text-lg max-w-xl leading-relaxed mb-12">
                 Fresh Bachelor of Science in Information Technology graduate, Major in Web Development.
                 I build clean, fast, and modern web applications — eager to grow and contribute to
                 real-world projects.
@@ -40,12 +57,23 @@ function scrollTo(id) {
 
             <div class="flex gap-4 flex-wrap">
                 <button @click="scrollTo('projects')"
-                    class="font-mono-custom text-sm px-5 py-2.5 bg-green-600 dark:bg-green-500 text-white dark:text-black font-bold hover:bg-green-500 dark:hover:bg-green-400 transition-colors duration-200 rounded">
+                    class="group font-mono-custom text-xs uppercase tracking-widest px-6 py-3.5 bg-green-600 hover:bg-green-500 dark:bg-green-500 dark:hover:bg-green-400 text-white dark:text-black font-bold transition-all duration-300 rounded-full shadow-lg shadow-green-600/20 dark:shadow-green-500/10 hover:shadow-green-500/30 dark:hover:shadow-green-400/20 hover:-translate-y-0.5 flex items-center gap-2">
                     view my work
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
+                        class="transition-transform duration-300 group-hover:translate-y-0.5">
+                        <polyline points="6 9 12 15 18 9" />
+                    </svg>
                 </button>
                 <button @click="scrollTo('contact')"
-                    class="font-mono-custom text-sm px-5 py-2.5 border border-green-600 dark:border-green-700 text-green-600 dark:text-green-400 hover:bg-green-100 dark:hover:bg-green-900/30 transition-colors duration-200 rounded">
+                    class="group font-mono-custom text-xs uppercase tracking-widest px-6 py-3.5 border border-gray-300 dark:border-white/10 hover:border-green-500 dark:hover:border-green-500 text-gray-700 dark:text-gray-300 hover:text-green-600 dark:hover:text-green-400 bg-white/50 dark:bg-white/5 backdrop-blur hover:bg-gray-100 dark:hover:bg-white/15 transition-all duration-300 rounded-full hover:-translate-y-0.5 flex items-center gap-2">
                     get in touch
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
+                        class="transition-transform duration-300 group-hover:translate-x-0.5">
+                        <line x1="5" y1="12" x2="19" y2="12" />
+                        <polyline points="12 5 19 12 12 19" />
+                    </svg>
                 </button>
             </div>
 
