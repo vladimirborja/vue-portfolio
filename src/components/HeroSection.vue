@@ -24,10 +24,6 @@ function scrollTo(id) {
         <div class="absolute inset-0 -z-10 bg-cover bg-center transition-all duration-300 hero-bg"></div>
         <div class="max-w-5xl mx-auto px-6 py-24 w-full">
 
-            <p class="font-mono-custom text-green-600 dark:text-green-500 text-sm mb-4 tracking-widest">
-                &gt; whoami
-            </p>
-
             <h1 class="text-5xl md:text-7xl font-bold text-gray-900 dark:text-white leading-tight mb-2">
                 Hi, I'm <span class="text-green-600 dark:text-green-400">Karl.</span>
             </h1>
@@ -43,7 +39,7 @@ function scrollTo(id) {
             </p>
 
             <div class="flex gap-4 flex-wrap">
-                <button @click="scrollTo('skills')"
+                <button @click="scrollTo('projects')"
                     class="font-mono-custom text-sm px-5 py-2.5 bg-green-600 dark:bg-green-500 text-white dark:text-black font-bold hover:bg-green-500 dark:hover:bg-green-400 transition-colors duration-200 rounded">
                     view my work
                 </button>

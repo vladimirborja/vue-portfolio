@@ -5,17 +5,15 @@
     <section id="about" v-scroll-reveal class="py-24 border-t border-green-200/50 dark:border-green-900/40">
         <div class="max-w-5xl mx-auto px-6">
 
-            <p class="font-mono-custom text-green-600 dark:text-green-500 text-sm mb-2 tracking-widest">&gt; about --me
-            </p>
-            <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-12">Who I am</h2>
+            <h2 class="font-mono-custom text-green-600 dark:text-green-500 text-2xl mb-5 tracking-widest">Who I am</h2>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
 
                 <div class="flex justify-center md:justify-start">
                     <div
-                        class="w-64 h-64 rounded-lg border-2 border-green-600/50 dark:border-green-700/50 bg-green-100/50 dark:bg-green-950/20 flex items-center justify-center overflow-hidden">
-                        <img src="/src/assets/profile.jpg" alt="Karl Vladimir B. Borja"
-                            class="w-full h-full object-cover"
+                        class="w-64 h-80 rounded-lg border-2 border-green-600/50 dark:border-green-700/50 bg-green-100/50 dark:bg-green-950/20 flex items-center justify-center overflow-hidden">
+                        <img src="/src/assets/images/profile.JPG" alt="Karl Vladimir B. Borja"
+                            class="w-full h-full object-cover object-top"
                             onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'" />
                         <span
                             class="hidden font-mono-custom text-xs text-green-700 dark:text-green-400 text-center px-4">
