@@ -115,7 +115,7 @@ function handleSubmit() {
     <footer class="border-t border-green-200/50 dark:border-green-900/40 py-6">
         <div class="max-w-5xl mx-auto px-6">
             <p class="font-mono-custom text-xs text-gray-600 dark:text-gray-500 text-center">
-                &gt; built with Vue 3 + TailwindCSS — {{ new Date().getFullYear() }}
+                &#169; Karl Vladimir B. Borja. All Rights Reserved. — {{ new Date().getFullYear() }}
             </p>
         </div>
     </footer>
