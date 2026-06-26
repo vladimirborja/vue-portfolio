@@ -1,4 +1,4 @@
-<script setup>
+p<script setup>
 import { ref } from 'vue'
 
 const email = 'vladimirborja013@gmail.com'
@@ -108,6 +108,13 @@ function handleSubmit() {
                     Message noted — since this is a frontend-only form, please also reach out via email above.
                 </p>
             </form>
+
+										<svg ...>
+  <path ... />
+  <text x="0" y="40" font-size="14" fill="currentColor">
+    Contact: 0965 056 1211
+  </text>
+</svg>
 
         </div>
     </section>
