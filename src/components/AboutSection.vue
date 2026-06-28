@@ -21,30 +21,15 @@
             <!-- Bento Grid Layout with Staggered Scroll Reveal -->
             <div v-scroll-reveal="{ stagger: 150 }" class="grid grid-cols-1 md:grid-cols-3 gap-6">
 
-                <!-- Card 1: Avatar and Quick Description (Span 2 Columns on desktop) -->
+                <!-- Card 1: Quick Description (Span 2 Columns on desktop) -->
                 <div v-card-spotlight
                     class="card-spotlight md:col-span-2 rounded-2xl shadow-xl shadow-gray-100/50 dark:shadow-none reveal-item">
-                    <div class="card-spotlight-content p-6 md:p-8 rounded-2xl flex flex-col md:flex-row items-center gap-8 group/card bg-white/50 dark:bg-black/40 backdrop-blur-md h-full">
-                        <div v-tilt
-                            class="relative w-40 h-40 rounded-full flex-shrink-0 flex items-center justify-center p-1.5 transition-all duration-500 group-hover/card:scale-105">
-                            <!-- Animating spinning gradient ring around avatar -->
-                            <div class="absolute inset-0 rounded-full bg-gradient-to-tr from-green-500 to-emerald-400 dark:from-green-600 dark:to-emerald-400 animate-spin-slow"></div>
-                            <div class="absolute inset-0.5 rounded-full bg-white dark:bg-[#0a0a0a]"></div>
-
-                            <div class="relative w-full h-full rounded-full overflow-hidden bg-green-50 dark:bg-green-950/20 flex items-center justify-center border border-green-200/30">
-                                <img src="../assets/images/profile.JPG" alt="Karl Vladimir B. Borja"
-                                    class="w-full h-full object-cover object-top transition-transform duration-500 group-hover/card:scale-110"
-                                    onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'" />
-                            </div>
-                        </div>
-
-                        <div class="flex-1 text-center md:text-left">
-                            <span class="font-mono-custom text-xs text-green-600 dark:text-green-400 font-bold uppercase tracking-wider">Lead Capstone Dev</span>
-                            <h3 class="text-2xl font-bold text-gray-900 dark:text-white mt-1 mb-3">Karl Vladimir B. Borja</h3>
-                            <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
-                                A passionate developer majoring in Web Development. I build functional, high-performance web products that solve real-world problems.
-                            </p>
-                        </div>
+                    <div class="card-spotlight-content p-6 md:p-8 rounded-2xl flex flex-col justify-center bg-white/50 dark:bg-black/40 backdrop-blur-md h-full">
+                        <span class="font-mono-custom text-xs text-green-600 dark:text-green-400 font-bold uppercase tracking-wider">Lead Capstone Dev</span>
+                        <h3 class="text-2xl font-bold text-gray-900 dark:text-white mt-1 mb-3">Karl Vladimir B. Borja</h3>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
+                            A passionate developer majoring in Web Development. I build functional, high-performance web products that solve real-world problems.
+                        </p>
                     </div>
                 </div>
 
