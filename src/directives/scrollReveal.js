@@ -2,6 +2,7 @@ export const vScrollReveal = {
   mounted(el, binding) {
     const delay = binding.value?.delay || 0
     const direction = binding.value?.direction || 'up'
+    const stagger = binding.value?.stagger || 0
 
     const transforms = {
       up: 'translateY(32px)',
@@ -10,21 +11,35 @@ export const vScrollReveal = {
       zoom: 'scale(0.95)',
     }
 
-    el.style.opacity = '0'
-    el.style.transform = transforms[direction]
-    el.style.transition = `opacity 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) ${delay}ms, transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) ${delay}ms`
+    const items = stagger > 0 
+      ? Array.from(el.querySelectorAll('.reveal-item'))
+      : [el]
+
+    // Fall back to direct children if staggering is requested but no items have .reveal-item
+    const targetItems = (stagger > 0 && items.length === 0)
+      ? Array.from(el.children)
+      : items
+
+    targetItems.forEach((item, idx) => {
+      item.style.opacity = '0'
+      item.style.transform = transforms[direction]
+      const itemDelay = delay + (stagger > 0 ? idx * stagger : 0)
+      item.style.transition = `opacity 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) ${itemDelay}ms, transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) ${itemDelay}ms`
+    })
 
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            el.style.opacity = '1'
-            el.style.transform = direction === 'zoom' ? 'scale(1)' : 'translate(0)'
+            targetItems.forEach((item) => {
+              item.style.opacity = '1'
+              item.style.transform = direction === 'zoom' ? 'scale(1)' : 'translate(0)'
+            })
             observer.unobserve(el)
           }
         })
       },
-      { threshold: 0.12 }
+      { threshold: 0.08 }
     )
 
     observer.observe(el)

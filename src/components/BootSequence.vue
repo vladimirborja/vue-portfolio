@@ -3,45 +3,83 @@ import { ref, onMounted } from 'vue'
 
 const emit = defineEmits(['done'])
 
-const lines = ref([])
+const progress = ref(0)
+const exiting = ref(false)
+const fadingOut = ref(false)
+const contentHidden = ref(false)
 const visible = ref(true)
 
-const bootLines = [
-    '> booting karl.dev...',
-    '> loading portfolio modules...',
-    '> connecting to github...',
-    '> ready.',
-]
-
-function skip() {
-    finish()
+function startProgress() {
+    const duration = 1200 // Faster, sleek load time
+    const start = performance.now()
+    
+    function update(time) {
+        if (finished) return
+        const elapsed = time - start
+        const percent = Math.min((elapsed / duration) * 100, 100)
+        progress.value = percent
+        if (percent < 100) {
+            requestAnimationFrame(update)
+        } else {
+            setTimeout(finish, 100)
+        }
+    }
+    requestAnimationFrame(update)
 }
 
+let finished = false
 function finish() {
-    visible.value = false
-    setTimeout(() => emit('done'), 400)
+    if (finished) return
+    finished = true
+    progress.value = 100
+    fadingOut.value = true
+    
+    setTimeout(() => {
+        exiting.value = true
+        contentHidden.value = true
+        setTimeout(() => {
+            visible.value = false
+            emit('done')
+        }, 700)
+    }, 200)
 }
 
 onMounted(() => {
-    let delay = 200
-    bootLines.forEach((line, idx) => {
-        setTimeout(() => {
-            lines.value.push(line)
-            if (idx === bootLines.length - 1) {
-                setTimeout(finish, 500)
-            }
-        }, delay)
-        delay += 350
-    })
+    startProgress()
 })
 </script>
 
 <template>
-    <div v-if="visible" @click="skip"
-        class="fixed inset-0 z-[100] bg-[#0a0a0a] flex items-center justify-center cursor-pointer transition-opacity duration-400">
-        <div class="font-mono-custom text-green-400 text-sm md:text-base space-y-2 px-6">
-            <p v-for="(line, idx) in lines" :key="idx">{{ line }}</p>
-            <p class="text-gray-600 text-xs mt-6">click anywhere to skip</p>
+    <div v-if="visible" class="fixed inset-0 z-[100] flex flex-col overflow-hidden select-none pointer-events-none">
+        <!-- Top Half Panel -->
+        <div :class="exiting ? '-translate-y-full' : 'translate-y-0'" 
+            class="flex-1 bg-[#0a0a0a] border-b border-white/5 transition-transform duration-700 ease-in-out"></div>
+        
+        <!-- Bottom Half Panel -->
+        <div :class="exiting ? 'translate-y-full' : 'translate-y-0'" 
+            class="flex-1 bg-[#0a0a0a] border-t border-white/5 transition-transform duration-700 ease-in-out"></div>
+        
+        <!-- Minimalist content overlay -->
+        <div v-if="!contentHidden" 
+            :class="{'opacity-0': fadingOut}"
+            class="absolute inset-0 flex items-center justify-center p-6 bg-transparent transition-opacity duration-300 pointer-events-auto">
+            
+            <div class="flex flex-col items-center space-y-4">
+                <!-- Clean typography -->
+                <div class="font-mono-custom text-white text-lg md:text-xl font-bold tracking-widest uppercase">
+                    karl.dev
+                </div>
+                
+                <!-- Sleek horizontal progress bar -->
+                <div class="w-40 flex flex-col items-center space-y-2">
+                    <div class="w-full bg-white/5 border border-white/10 rounded-full overflow-hidden p-0.5 h-2 flex items-center">
+                        <div class="h-full bg-gradient-to-r from-green-600 to-emerald-400 rounded-full transition-all duration-75" :style="{ width: `${progress}%` }"></div>
+                    </div>
+                    <span class="font-mono-custom text-[10px] text-gray-500 font-semibold tracking-wider">
+                        {{ Math.round(progress) }}%
+                    </span>
+                </div>
+            </div>
         </div>
     </div>
 </template>

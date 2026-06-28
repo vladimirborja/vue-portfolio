@@ -1,16 +1,32 @@
 <script setup>
-import { ref, onMounted } from 'vue'
+import { ref, onMounted, onUnmounted } from 'vue'
 
 const displayText = ref('')
 const fullText = 'Full-Stack Developer.'
 let i = 0
 
+const bgTransform1 = ref('translate3d(0, 0, 0)')
+const bgTransform2 = ref('translate3d(0, 0, 0)')
+
+const handleMouseMove = (e) => {
+    const x = e.clientX - window.innerWidth / 2
+    const y = e.clientY - window.innerHeight / 2
+    
+    bgTransform1.value = `translate3d(${x * 0.04}px, ${y * 0.04}px, 0)`
+    bgTransform2.value = `translate3d(${x * -0.025}px, ${y * -0.025}px, 0)`
+}
+
 onMounted(() => {
+    window.addEventListener('mousemove', handleMouseMove)
     const interval = setInterval(() => {
         displayText.value += fullText[i]
         i++
         if (i >= fullText.length) clearInterval(interval)
     }, 80)
+})
+
+onUnmounted(() => {
+    window.removeEventListener('mousemove', handleMouseMove)
 })
 
 function scrollTo(id) {
@@ -25,17 +41,18 @@ function scrollTo(id) {
 
         <!-- Modern ambient glow bubbles for depth -->
         <div
-            class="absolute top-1/4 left-1/4 -translate-x-1/2 -translate-y-1/2 w-[300px] md:w-[400px] h-[300px] md:h-[400px] rounded-full bg-green-500/10 dark:bg-green-500/5 blur-[80px] md:blur-[120px] -z-10 animate-pulse pointer-events-none">
+            class="absolute top-1/4 left-1/4 w-[300px] md:w-[400px] h-[300px] md:h-[400px] rounded-full bg-green-500/10 dark:bg-green-500/5 blur-[80px] md:blur-[120px] -z-10 animate-pulse pointer-events-none"
+            :style="{ transform: `translate(-50%, -50%) ${bgTransform1}` }">
         </div>
-        <div class="absolute bottom-1/4 right-1/4 translate-x-1/2 translate-y-1/2 w-[350px] md:w-[500px] h-[350px] md:h-[500px] rounded-full bg-emerald-600/10 dark:bg-emerald-950/20 blur-[100px] md:blur-[150px] -z-10 animate-pulse pointer-events-none"
-            style="animation-duration: 8s"></div>
+        <div class="absolute bottom-1/4 right-1/4 w-[350px] md:w-[500px] h-[350px] md:h-[500px] rounded-full bg-emerald-600/10 dark:bg-emerald-950/20 blur-[100px] md:blur-[150px] -z-10 animate-pulse pointer-events-none"
+            :style="{ transform: `translate(50%, 50%) ${bgTransform2}`, animationDuration: '8s' }"></div>
 
         <div class="max-w-5xl mx-auto px-6 py-24 w-full relative">
 
             <!-- Dynamic badge subheader -->
             <div
-                class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-green-200/60 dark:border-green-900/40 bg-green-500/5 dark:bg-green-500/10 text-green-700 dark:text-green-400 font-mono-custom text-xs uppercase tracking-wider mb-6">
-                <span class="w-1.5 h-1.5 rounded-full bg-green-600 dark:bg-green-500 animate-ping"></span>
+                class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full border border-gray-200/80 dark:border-white/10 bg-gray-50/50 dark:bg-white/5 text-gray-600 dark:text-gray-300 font-mono-custom text-xs uppercase tracking-wider mb-6">
+                <span class="w-1.5 h-1.5 rounded-full bg-green-500"></span>
                 Karl Vladimir B. Borja
             </div>
 

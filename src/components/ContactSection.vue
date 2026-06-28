@@ -1,4 +1,4 @@
-p<script setup>
+<script setup>
 import { ref } from 'vue'
 
 const email = 'vladimirborja013@gmail.com'
@@ -18,19 +18,20 @@ function handleSubmit() {
 </script>
 
 <template>
-    <section id="contact" v-scroll-reveal class="py-24 border-t border-green-200/50 dark:border-green-900/40 relative">
+    <section id="contact" class="py-24 border-t border-green-200/50 dark:border-green-900/40 relative">
         <!-- Ambient background glow bubble -->
         <div
             class="absolute bottom-12 right-12 w-[350px] h-[350px] rounded-full bg-emerald-500/5 blur-[90px] -z-10 pointer-events-none">
         </div>
 
-        <div class="max-w-5xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+        <div v-scroll-reveal="{ stagger: 150 }" class="max-w-5xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
 
-            <div>
+            <div class="reveal-item">
                 <!-- Badge -->
                 <div
-                    class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-green-200/60 dark:border-green-900/40 bg-green-500/5 dark:bg-green-500/10 text-green-700 dark:text-green-400 font-mono-custom text-xs uppercase tracking-wider mb-6">
-                    &gt; contact --open
+                    class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full border border-gray-200/80 dark:border-white/10 bg-gray-50/50 dark:bg-white/5 text-gray-600 dark:text-gray-300 font-mono-custom text-xs uppercase tracking-wider mb-6">
+                    <span class="w-1.5 h-1.5 rounded-full bg-green-500"></span>
+                    Contact
                 </div>
 
                 <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4 tracking-tight">Let's work
@@ -60,7 +61,7 @@ function handleSubmit() {
                         </svg>
                     </a>
                     <a href="https://mail.google.com/mail/?view=cm&fs=1&to=vladimirborja013@gmail.com" target="_blank"
-                        class="p-2 rounded-full bg-gray-100 hover:bg-green-500/10 dark:bg-white/5 dark:hover:bg-green-500/10 text-gray-600 hover:text-green-600 dark:text-gray-400 dark:hover:text-green-400 hover:scale-110 transition-all duration-300"
+                        class="p-2.5 rounded-xl bg-gray-100 hover:bg-green-500/10 dark:bg-white/5 dark:hover:bg-green-500/10 text-gray-600 hover:text-green-600 dark:text-gray-400 dark:hover:text-green-400 hover:scale-105 transition-all duration-300 flex items-center justify-center"
                         aria-label="Email">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
                             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
@@ -74,48 +75,43 @@ function handleSubmit() {
                 </div>
             </div>
 
-            <form @submit.prevent="handleSubmit"
-                class="p-6 md:p-8 rounded-2xl border border-gray-200/60 dark:border-white/10 bg-white/50 dark:bg-white/5 backdrop-blur-md shadow-xl shadow-gray-100/50 dark:shadow-none flex flex-col gap-5 hover:border-green-500/30 transition-colors duration-300">
-                <div class="relative group/input">
-                    <label
-                        class="font-mono-custom text-[10px] font-bold text-gray-500 dark:text-gray-400 uppercase tracking-widest block mb-2 transition-colors group-focus-within/input:text-green-600 dark:group-focus-within/input:text-green-400">Name</label>
-                    <input v-model="form.name" type="text" required
-                        class="w-full bg-gray-50/50 dark:bg-[#080808]/40 border border-gray-200 dark:border-white/10 rounded-xl px-4 py-3 text-gray-900 dark:text-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-green-500/20 focus:border-green-500 transition-all duration-300" />
+            <form @submit.prevent="handleSubmit" v-card-spotlight
+                class="card-spotlight rounded-2xl shadow-xl shadow-gray-100/50 dark:shadow-none reveal-item">
+                
+                <div class="card-spotlight-content p-6 md:p-8 rounded-2xl bg-white/50 dark:bg-black/40 backdrop-blur-md flex flex-col gap-5">
+                    <div class="relative group/input">
+                        <label
+                            class="font-mono-custom text-[10px] font-bold text-gray-500 dark:text-gray-400 uppercase tracking-widest block mb-2 transition-colors group-focus-within/input:text-green-600 dark:group-focus-within/input:text-green-400">Name</label>
+                        <input v-model="form.name" type="text" required
+                            class="w-full bg-gray-50/50 dark:bg-[#080808]/40 border border-gray-200 dark:border-white/10 rounded-xl px-4 py-3 text-gray-900 dark:text-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-green-500/20 focus:border-green-500 transition-all duration-300" />
+                    </div>
+                    <div class="relative group/input">
+                        <label
+                            class="font-mono-custom text-[10px] font-bold text-gray-500 dark:text-gray-400 uppercase tracking-widest block mb-2 transition-colors group-focus-within/input:text-green-600 dark:group-focus-within/input:text-green-400">Email</label>
+                        <input v-model="form.email" type="email" required
+                            class="w-full bg-gray-50/50 dark:bg-[#080808]/40 border border-gray-200 dark:border-white/10 rounded-xl px-4 py-3 text-gray-900 dark:text-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-green-500/20 focus:border-green-500 transition-all duration-300" />
+                    </div>
+                    <div class="relative group/input">
+                        <label
+                            class="font-mono-custom text-[10px] font-bold text-gray-500 dark:text-gray-400 uppercase tracking-widest block mb-2 transition-colors group-focus-within/input:text-green-600 dark:group-focus-within/input:text-green-400">Message</label>
+                        <textarea v-model="form.message" rows="4" required
+                            class="w-full bg-gray-50/50 dark:bg-[#080808]/40 border border-gray-200 dark:border-white/10 rounded-xl px-4 py-3 text-gray-900 dark:text-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-green-500/20 focus:border-green-500 transition-all duration-300 resize-none"></textarea>
+                    </div>
+                    <button type="submit"
+                        class="group font-mono-custom text-xs uppercase tracking-widest px-6 py-3.5 bg-green-600 hover:bg-green-500 dark:bg-green-500 dark:hover:bg-green-400 text-white dark:text-black font-bold transition-all duration-300 rounded-xl shadow-lg shadow-green-600/10 dark:shadow-green-500/10 hover:shadow-green-500/25 hover:-translate-y-0.5 flex items-center justify-center gap-2">
+                        send message
+                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
+                            class="transition-transform duration-300 group-hover:translate-x-0.5">
+                            <line x1="22" y1="2" x2="11" y2="13" />
+                            <polyline points="22 2 15 22 11 13 2 9 22 2" />
+                        </svg>
+                    </button>
+                    <p v-if="submitted" class="font-mono-custom text-[10px] text-green-600 dark:text-green-400 text-center animate-fade-in">
+                        Message noted — since this is a frontend-only form, please also reach out via email above.
+                    </p>
                 </div>
-                <div class="relative group/input">
-                    <label
-                        class="font-mono-custom text-[10px] font-bold text-gray-500 dark:text-gray-400 uppercase tracking-widest block mb-2 transition-colors group-focus-within/input:text-green-600 dark:group-focus-within/input:text-green-400">Email</label>
-                    <input v-model="form.email" type="email" required
-                        class="w-full bg-gray-50/50 dark:bg-[#080808]/40 border border-gray-200 dark:border-white/10 rounded-xl px-4 py-3 text-gray-900 dark:text-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-green-500/20 focus:border-green-500 transition-all duration-300" />
-                </div>
-                <div class="relative group/input">
-                    <label
-                        class="font-mono-custom text-[10px] font-bold text-gray-500 dark:text-gray-400 uppercase tracking-widest block mb-2 transition-colors group-focus-within/input:text-green-600 dark:group-focus-within/input:text-green-400">Message</label>
-                    <textarea v-model="form.message" rows="4" required
-                        class="w-full bg-gray-50/50 dark:bg-[#080808]/40 border border-gray-200 dark:border-white/10 rounded-xl px-4 py-3 text-gray-900 dark:text-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-green-500/20 focus:border-green-500 transition-all duration-300 resize-none"></textarea>
-                </div>
-                <button type="submit"
-                    class="group font-mono-custom text-xs uppercase tracking-widest px-6 py-3.5 bg-green-600 hover:bg-green-500 dark:bg-green-500 dark:hover:bg-green-400 text-white dark:text-black font-bold transition-all duration-300 rounded-xl shadow-lg shadow-green-600/10 dark:shadow-green-500/10 hover:shadow-green-500/25 hover:-translate-y-0.5 flex items-center justify-center gap-2">
-                    send message
-                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
-                        stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
-                        class="transition-transform duration-300 group-hover:translate-x-0.5">
-                        <line x1="22" y1="2" x2="11" y2="13" />
-                        <polyline points="22 2 15 22 11 13 2 9 22 2" />
-                    </svg>
-                </button>
-                <p v-if="submitted" class="font-mono-custom text-[10px] text-green-600 dark:text-green-400 text-center">
-                    Message noted — since this is a frontend-only form, please also reach out via email above.
-                </p>
             </form>
-
-										<svg ...>
-  <path ... />
-  <text x="0" y="40" font-size="14" fill="currentColor">
-    Contact: 0965 056 1211
-  </text>
-</svg>
-
         </div>
     </section>
 

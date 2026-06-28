@@ -1,8 +1,11 @@
 <script setup>
-import { ref, onMounted, onUnmounted } from 'vue'
+import { ref, onMounted, onUnmounted, watch } from 'vue'
 import ThemeToggle from './ThemeToggle.vue'
 
 const activeSection = ref('')
+const containerRef = ref(null)
+const homeBtnRef = ref(null)
+const sectionBtnRefs = ref({})
 
 const links = [
     { id: 'about', name: 'About' },
@@ -15,9 +18,59 @@ function scrollTo(id) {
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
 }
 
+const setSectionRef = (el, id) => {
+    if (el) sectionBtnRefs.value[id] = el
+}
+
+const pillStyle = ref({
+    left: '0px',
+    top: '0px',
+    width: '0px',
+    height: '0px',
+    opacity: 0
+})
+
+const activeSectionElement = ref(null)
+const hoveredElement = ref(null)
+
+const updatePill = () => {
+    const target = hoveredElement.value || activeSectionElement.value
+    const container = containerRef.value
+    if (!target || !container) {
+        pillStyle.value.opacity = 0
+        return
+    }
+    
+    const targetRect = target.getBoundingClientRect()
+    const containerRect = container.getBoundingClientRect()
+    
+    pillStyle.value = {
+        left: `${targetRect.left - containerRect.left}px`,
+        top: `${targetRect.top - containerRect.top}px`,
+        width: `${targetRect.width}px`,
+        height: `${targetRect.height}px`,
+        opacity: 1
+    }
+}
+
+watch(activeSection, (newVal) => {
+    if (newVal === 'hero' || newVal === '') {
+        activeSectionElement.value = homeBtnRef.value
+    } else {
+        activeSectionElement.value = sectionBtnRefs.value[newVal] || homeBtnRef.value
+    }
+    updatePill()
+}, { immediate: true })
+
+const handleResize = () => {
+    updatePill()
+}
+
 let observer = null
 
 onMounted(() => {
+    window.addEventListener('resize', handleResize)
+    
     const options = {
         root: null,
         rootMargin: '-30% 0px -60% 0px',
@@ -37,17 +90,35 @@ onMounted(() => {
         const el = document.getElementById(id)
         if (el) observer.observe(el)
     })
+
+    // Brief delay to allow initial layout and refs resolution
+    setTimeout(() => {
+        if (activeSection.value === 'hero' || activeSection.value === '') {
+            activeSectionElement.value = homeBtnRef.value
+        } else {
+            activeSectionElement.value = sectionBtnRefs.value[activeSection.value] || homeBtnRef.value
+        }
+        updatePill()
+    }, 150)
 })
 
 onUnmounted(() => {
+    window.removeEventListener('resize', handleResize)
     if (observer) observer.disconnect()
 })
 </script>
 
 <template>
-    <div class="fixed top-6 left-1/2 -translate-x-1/2 z-50 flex items-center gap-1 p-1.5 rounded-full border border-gray-200/50 dark:border-white/10 bg-white/70 dark:bg-black/75 backdrop-blur-xl shadow-2xl shadow-gray-200/20 dark:shadow-black/40 transition-all duration-300">
-        <button @click="scrollTo('hero')" 
-            class="relative group p-2.5 rounded-full transition-all duration-300 hover:scale-105 flex items-center justify-center text-gray-500 dark:text-gray-400 hover:text-green-600 dark:hover:text-green-400 hover:bg-gray-100/50 dark:hover:bg-white/5"
+    <div ref="containerRef" class="fixed top-6 left-1/2 -translate-x-1/2 z-50 flex items-center gap-1 p-1.5 rounded-full border border-gray-200/50 dark:border-white/10 bg-white/70 dark:bg-black/75 backdrop-blur-xl shadow-2xl shadow-gray-200/20 dark:shadow-black/40 transition-all duration-300">
+        
+        <!-- Sliding active indicator pill -->
+        <div class="absolute bg-green-500/10 dark:bg-green-500/15 rounded-full transition-all duration-300 ease-[cubic-bezier(0.25,1,0.5,1)] pointer-events-none -z-10" :style="pillStyle"></div>
+
+        <button ref="homeBtnRef" @click="scrollTo('hero')" 
+            @mouseenter="hoveredElement = $event.currentTarget; updatePill()"
+            @mouseleave="hoveredElement = null; updatePill()"
+            class="relative group p-2.5 rounded-full transition-all duration-300 hover:scale-105 flex items-center justify-center"
+            :class="(activeSection === 'hero' || activeSection === '') ? 'text-green-600 dark:text-green-400 font-bold' : 'text-gray-500 dark:text-gray-400 hover:text-green-600 dark:hover:text-green-400'"
             aria-label="Scroll to top">
             <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-terminal">
                 <polyline points="4 17 10 11 4 5"/>
@@ -59,11 +130,13 @@ onUnmounted(() => {
         <div class="h-4 w-px bg-gray-200 dark:bg-white/10 mx-1"></div>
 
         <nav class="flex items-center gap-1">
-            <button v-for="link in links" :key="link.id" @click="scrollTo(link.id)"
+            <button v-for="link in links" :key="link.id" :ref="el => setSectionRef(el, link.id)" @click="scrollTo(link.id)"
+                @mouseenter="hoveredElement = $event.currentTarget; updatePill()"
+                @mouseleave="hoveredElement = null; updatePill()"
                 class="relative group p-2.5 rounded-full transition-all duration-300 hover:scale-105 flex items-center justify-center"
                 :class="activeSection === link.id 
-                    ? 'text-green-600 dark:text-green-400 bg-green-500/10 dark:bg-green-500/10 font-bold' 
-                    : 'text-gray-500 dark:text-gray-400 hover:text-green-600 dark:hover:text-green-400 hover:bg-gray-100/50 dark:hover:bg-white/5'"
+                    ? 'text-green-600 dark:text-green-400 font-bold' 
+                    : 'text-gray-500 dark:text-gray-400 hover:text-green-600 dark:hover:text-green-400'"
                 :aria-label="`Scroll to ${link.name}`">
                 
                 <!-- About Icon -->

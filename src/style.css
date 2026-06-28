@@ -42,3 +42,73 @@ body {
 .animate-spin-slow {
   animation: spin-slow 12s linear infinite;
 }
+
+/* View Transition API overrides */
+::view-transition-image-pair(root) {
+  isolation: auto;
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+  display: block;
+}
+
+/* Card Spotlight cursor-tracking glow */
+.card-spotlight {
+  position: relative;
+  background: rgba(229, 231, 235, 0.4);
+  padding: 1px;
+  transition: background 0.4s ease;
+  overflow: hidden;
+}
+
+.dark .card-spotlight {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.card-spotlight:hover {
+  background: transparent;
+}
+
+.card-spotlight::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(
+    400px circle at var(--mouse-x) var(--mouse-y),
+    rgba(34, 197, 94, 0.06),
+    transparent 80%
+  );
+  opacity: 0;
+  transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.card-spotlight::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: radial-gradient(
+    300px circle at var(--mouse-x) var(--mouse-y),
+    rgba(34, 197, 94, 0.35),
+    transparent 70%
+  );
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.card-spotlight:hover::before,
+.card-spotlight:hover::after {
+  opacity: 1;
+}

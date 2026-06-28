@@ -5,7 +5,7 @@ const { isDark, toggleTheme } = useTheme()
 </script>
 
 <template>
-    <button @click="toggleTheme"
+    <button @click="toggleTheme($event)"
         class="rounded-lg p-2 text-gray-600 transition hover:bg-emerald-50 hover:text-emerald-600 dark:text-gray-300 dark:hover:bg-gray-800"
         :aria-label="isDark ? 'Switch to light mode' : 'Switch to dark mode'">
         <svg v-if="isDark" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-sun">
