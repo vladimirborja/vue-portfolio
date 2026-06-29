@@ -1,39 +1,39 @@
 <script setup>
+import FlipText from './ui/FlipText.vue'
 </script>
 
 <template>
     <section id="about" class="py-24 border-t border-green-200/50 dark:border-green-900/40 relative">
-        <!-- Ambient section glow -->
         <div
             class="absolute top-1/2 right-0 w-[300px] h-[300px] rounded-full bg-emerald-500/5 blur-[80px] -z-10 pointer-events-none">
         </div>
 
         <div class="max-w-5xl mx-auto px-6">
-            <!-- Badge -->
             <div
                 class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full border border-gray-200/80 dark:border-white/10 bg-gray-50/50 dark:bg-white/5 text-gray-600 dark:text-gray-300 font-mono-custom text-xs uppercase tracking-wider mb-6">
                 <span class="w-1.5 h-1.5 rounded-full bg-green-500"></span>
                 About
             </div>
 
-            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-12 tracking-tight">Who I am</h2>
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-12 tracking-tight">
+                <FlipText text="Who I am" :duration="2.8" />
+            </h2>
 
-            <!-- Bento Grid Layout with Staggered Scroll Reveal -->
             <div v-scroll-reveal="{ stagger: 150 }" class="grid grid-cols-1 md:grid-cols-3 gap-6">
 
-                <!-- Card 1: Quick Description (Span 2 Columns on desktop) -->
                 <div v-card-spotlight
                     class="card-spotlight md:col-span-2 rounded-2xl shadow-xl shadow-gray-100/50 dark:shadow-none reveal-item">
                     <div class="card-spotlight-content p-6 md:p-8 rounded-2xl flex flex-col justify-center bg-white/50 dark:bg-black/40 backdrop-blur-md h-full">
                         <span class="font-mono-custom text-xs text-green-600 dark:text-green-400 font-bold uppercase tracking-wider">Lead Capstone Dev</span>
-                        <h3 class="text-2xl font-bold text-gray-900 dark:text-white mt-1 mb-3">Karl Vladimir B. Borja</h3>
+                        <h3 class="text-2xl font-bold text-gray-900 dark:text-white mt-1 mb-3">
+                            <FlipText text="Karl Vladimir B. Borja" :duration="3.2" />
+                        </h3>
                         <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
                             A passionate developer majoring in Web Development. I build functional, high-performance web products that solve real-world problems.
                         </p>
                     </div>
                 </div>
 
-                <!-- Card 2: Status Indicator (Span 1 Column) -->
                 <div v-card-spotlight
                     class="card-spotlight rounded-2xl shadow-xl shadow-gray-100/50 dark:shadow-none reveal-item">
                     <div class="card-spotlight-content p-6 md:p-8 rounded-2xl flex flex-col justify-between bg-white/50 dark:bg-black/40 backdrop-blur-md h-full">
@@ -83,7 +83,6 @@
                     </div>
                 </div>
 
-                <!-- Card 3: Academics (Span 1 Column) -->
                 <div v-card-spotlight
                     class="card-spotlight rounded-2xl shadow-xl shadow-gray-100/50 dark:shadow-none reveal-item">
                     <div class="card-spotlight-content p-6 md:p-8 rounded-2xl flex flex-col bg-white/50 dark:bg-black/40 backdrop-blur-md h-full">
@@ -120,7 +119,6 @@
                     </div>
                 </div>
 
-                <!-- Card 4: Story (Span 2 Columns) -->
                 <div v-card-spotlight
                     class="card-spotlight md:col-span-2 rounded-2xl shadow-xl shadow-gray-100/50 dark:shadow-none reveal-item">
                     <div class="card-spotlight-content p-6 md:p-8 rounded-2xl flex flex-col bg-white/50 dark:bg-black/40 backdrop-blur-md h-full">

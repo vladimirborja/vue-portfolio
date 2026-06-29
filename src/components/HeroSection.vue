@@ -1,14 +1,10 @@
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue'
-
-const displayText = ref('')
-const fullText = 'Full-Stack Developer.'
-let i = 0
+import FlipText from './ui/FlipText.vue'
 
 const bgTransform1 = ref('translate3d(0, 0, 0)')
 const bgTransform2 = ref('translate3d(0, 0, 0)')
 
-// Parallax scrolling fallback setup
 const supportsSDA = ref(true)
 const scrollY = ref(0)
 
@@ -26,13 +22,7 @@ const handleScroll = () => {
 
 onMounted(() => {
     window.addEventListener('mousemove', handleMouseMove)
-    const interval = setInterval(() => {
-        displayText.value += fullText[i]
-        i++
-        if (i >= fullText.length) clearInterval(interval)
-    }, 80)
 
-    // Feature detection for native Scroll-Driven Animations
     supportsSDA.value = typeof CSS !== 'undefined' && 
                         CSS.supports && 
                         CSS.supports('(animation-timeline: view()) and (animation-range: entry)')
@@ -60,13 +50,11 @@ function scrollTo(id) {
 
 <template>
     <section id="hero" class="relative min-h-screen flex items-center pt-14 overflow-hidden z-0">
-        <!-- Light/Dark dynamic background layer with scroll parallax fallback style bindings -->
         <div 
             class="absolute inset-0 -z-10 bg-cover bg-center hero-bg"
             :style="!supportsSDA ? { transform: `translateY(${scrollY * 0.3}px)` } : {}"
         ></div>
 
-        <!-- Modern ambient glow bubbles for depth -->
         <div
             class="absolute top-1/4 left-1/4 w-[300px] md:w-[400px] h-[300px] md:h-[400px] rounded-full bg-green-500/10 dark:bg-green-500/5 blur-[80px] md:blur-[120px] -z-10 animate-pulse pointer-events-none"
             :style="{ transform: `translate(-50%, -50%) ${bgTransform1}` }">
@@ -76,9 +64,7 @@ function scrollTo(id) {
 
         <div class="max-w-7xl mx-auto px-6 py-1 w-full relative flex flex-col-reverse md:flex-row items-center justify-between gap-12">
 
-            <!-- Left Side Content -->
             <div class="flex-1 w-full text-left">
-                <!-- Dynamic badge subheader -->
                 <div
                     class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full border border-gray-200/80 dark:border-white/10 bg-gray-50/50 dark:bg-white/5 text-gray-600 dark:text-gray-300 font-mono-custom text-xs uppercase tracking-wider mb-6">
                     <span class="w-1.5 h-1.5 rounded-full bg-green-500"></span>
@@ -86,13 +72,16 @@ function scrollTo(id) {
                 </div>
 
                 <h1 class="text-5xl md:text-7xl font-bold text-gray-900 dark:text-white leading-tight mb-2 tracking-tight">
-                    Hi, I'm <span
-                        class="bg-gradient-to-r from-green-600 to-emerald-500 dark:from-green-400 dark:to-emerald-300 bg-clip-text text-transparent">Karl.</span>
+                    <FlipText text="Hi, I'm" class="mr-3" :duration="2.8" />
+                    <FlipText
+                        text="Karl."
+                        class="emerald-500 dark:from-green-400 dark:to-emerald-300 text-green-600 dark:text-green-400"
+                        :duration="2.8"
+                    />
                 </h1>
 
-                <h2
-                    class="text-3xl md:text-5xl font-bold text-gray-600 dark:text-gray-400 mb-8 min-h-[3rem] tracking-tight">
-                    {{ displayText }}<span class="animate-pulse text-green-600 dark:text-green-400">_</span>
+                <h2 class="text-3xl md:text-5xl font-bold text-gray-600 dark:text-gray-400 mb-8 tracking-tight">
+                    <FlipText text="Full-Stack Developer." :duration="3.2" />
                 </h2>
 
                 <p class="text-gray-700 dark:text-gray-400 text-lg max-w-xl leading-relaxed mb-12">
@@ -124,7 +113,6 @@ function scrollTo(id) {
                 </div>
             </div>
 
-            <!-- Right Side Profile Photo (Circular, Large) -->
             <div class="flex-shrink-0 relative group/hero-avatar w-full md:w-auto flex justify-center">
                 <div v-card-spotlight v-tilt
                     class="card-spotlight relative w-60 h-60 sm:w-72 sm:h-72 md:w-[420px] md:h-[420px] rounded-full shadow-2xl transition-all duration-500 hover:scale-[1.02]">
