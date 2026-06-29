@@ -201,3 +201,21 @@ body {
     opacity: var(--opacity, 0);
   }
 }
+
+/* Glass Dock (Vengeance UI) */
+.glass-dock {
+  --tab-bar-home-scale: 0.7;
+  --tab-bar-home-opacity: 1;
+}
+
+.glass-border {
+  border: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+.dark .glass-border {
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.glass-dock svg {
+  pointer-events: none;
+}
