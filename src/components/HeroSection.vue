@@ -8,12 +8,20 @@ let i = 0
 const bgTransform1 = ref('translate3d(0, 0, 0)')
 const bgTransform2 = ref('translate3d(0, 0, 0)')
 
+// Parallax scrolling fallback setup
+const supportsSDA = ref(true)
+const scrollY = ref(0)
+
 const handleMouseMove = (e) => {
     const x = e.clientX - window.innerWidth / 2
     const y = e.clientY - window.innerHeight / 2
     
     bgTransform1.value = `translate3d(${x * 0.04}px, ${y * 0.04}px, 0)`
     bgTransform2.value = `translate3d(${x * -0.025}px, ${y * -0.025}px, 0)`
+}
+
+const handleScroll = () => {
+    scrollY.value = window.scrollY
 }
 
 onMounted(() => {
@@ -23,10 +31,26 @@ onMounted(() => {
         i++
         if (i >= fullText.length) clearInterval(interval)
     }, 80)
+
+    // Feature detection for native Scroll-Driven Animations
+    supportsSDA.value = typeof CSS !== 'undefined' && 
+                        CSS.supports && 
+                        CSS.supports('(animation-timeline: view()) and (animation-range: entry)')
+
+    const prefersReducedMotion = typeof window !== 'undefined' && 
+                                 window.matchMedia('(prefers-reduced-motion: reduce)').matches
+
+    if (!supportsSDA.value && !prefersReducedMotion) {
+        window.addEventListener('scroll', handleScroll, { passive: true })
+        handleScroll()
+    }
 })
 
 onUnmounted(() => {
     window.removeEventListener('mousemove', handleMouseMove)
+    if (!supportsSDA.value) {
+        window.removeEventListener('scroll', handleScroll)
+    }
 })
 
 function scrollTo(id) {
@@ -36,8 +60,11 @@ function scrollTo(id) {
 
 <template>
     <section id="hero" class="relative min-h-screen flex items-center pt-14 overflow-hidden z-0">
-        <!-- Light/Dark dynamic background layer with smooth transition -->
-        <div class="absolute inset-0 -z-10 bg-cover bg-center transition-all duration-300 hero-bg"></div>
+        <!-- Light/Dark dynamic background layer with scroll parallax fallback style bindings -->
+        <div 
+            class="absolute inset-0 -z-10 bg-cover bg-center hero-bg"
+            :style="!supportsSDA ? { transform: `translateY(${scrollY * 0.3}px)` } : {}"
+        ></div>
 
         <!-- Modern ambient glow bubbles for depth -->
         <div

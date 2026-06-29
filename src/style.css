@@ -24,10 +24,40 @@ body {
 
 .hero-bg {
   background-image: linear-gradient(rgba(255,255,255,0.85), rgba(255,255,255,0.95)), url('./assets/images/hero-bg.png');
+  /* Avoid transition-all smoothing transform transitions, which interferes with parallax scroll calculations */
+  transition: background-image 0.3s ease, background-color 0.3s ease;
 }
 
 .dark .hero-bg {
   background-image: linear-gradient(rgba(10,10,10,0.85), rgba(10,10,10,0.95)), url('./assets/images/hero-bg.png');
+  transition: background-image 0.3s ease, background-color 0.3s ease;
+}
+
+/* --- Scroll Parallax configuration --- */
+
+#hero {
+  /* Define a view timeline representing the scroll progress of the hero section container */
+  view-timeline: --hero-timeline block;
+}
+
+@keyframes parallax-bg {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(120px);
+  }
+}
+
+/* Apply native scroll-driven animations only when fully supported */
+@supports ((animation-timeline: view()) and (animation-range: entry)) {
+  @media (prefers-reduced-motion: no-preference) {
+    .hero-bg {
+      animation: parallax-bg linear both;
+      animation-timeline: --hero-timeline;
+      animation-range: exit;
+    }
+  }
 }
 
 @keyframes spin-slow {
