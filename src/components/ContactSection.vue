@@ -96,7 +96,7 @@ function handleSubmit() {
                         <label
                             class="font-mono-custom text-[10px] font-bold text-gray-500 dark:text-gray-400 uppercase tracking-widest block mb-2 transition-colors group-focus-within/input:text-green-600 dark:group-focus-within/input:text-green-400">Message</label>
                         <textarea v-model="form.message" rows="4" required
-                            placeholder="Hi Karl, I'd like to work with you..."
+                            placeholder="Hi Juan, I'd like to work with you..."
                             class="w-full bg-gray-50/50 dark:bg-[#080808]/40 border border-gray-200 dark:border-white/10 rounded-xl px-4 py-3 text-gray-900 dark:text-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-green-500/20 focus:border-green-500 transition-all duration-300 resize-none placeholder:text-gray-400 dark:placeholder:text-gray-600"></textarea>
                     </div>
                     <button type="submit"
