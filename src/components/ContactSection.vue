@@ -100,7 +100,18 @@ function handleSubmit() {
                             class="w-full bg-gray-50/50 dark:bg-[#080808]/40 border border-gray-200 dark:border-white/10 rounded-xl px-4 py-3 text-gray-900 dark:text-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-green-500/20 focus:border-green-500 transition-all duration-300 resize-none placeholder:text-gray-400 dark:placeholder:text-gray-600"></textarea>
                     </div>
                     <button type="submit"
-                        class="group font-mono-custom text-xs uppercase tracking-widest px-6 py-3.5 bg-green-600 hover:bg-green-500 dark:bg-green-500 dark:hover:bg-green-400 text-white dark:text-black font-bold transition-all duration-300 rounded-xl shadow-lg shadow-green-600/10 dark:shadow-green-500/10 hover:shadow-green-500/25 hover:-translate-y-0.5 flex items-center justify-center gap-2">
+                        class="group relative inline-flex items-center justify-center font-mono-custom font-bold uppercase text-xs tracking-widest text-black dark:text-black
+                        px-6 py-3.5 rounded-xl bg-green-500 border-2 border-green-700
+                        transition-all duration-150 ease-[cubic-bezier(0,0,0.58,1)]
+                        shadow-[0_8px_0_-2px_#86efac,0_8px_0_0_#15803d,0_14px_0_0_#bbf7d0]
+                        dark:shadow-[0_8px_0_-2px_#4ade80,0_8px_0_0_#166534,0_14px_10px_-5px_rgba(0,0,0,0.4)]
+                        hover:bg-green-400 hover:translate-y-1
+                        hover:shadow-[0_5px_0_-2px_#86efac,0_5px_0_0_#15803d,0_9px_0_0_#bbf7d0]
+                        dark:hover:shadow-[0_5px_0_-2px_#4ade80,0_5px_0_0_#166534,0_9px_8px_-4px_rgba(0,0,0,0.4)]
+                        active:translate-y-2
+                        active:shadow-[0_0px_0_-2px_#86efac,0_0px_0_0_#15803d,0_0px_0_0_#bbf7d0]
+                        dark:active:shadow-[0_0px_0_-2px_#4ade80,0_0px_0_0_#166534,0_0px_0_0_rgba(0,0,0,0)]
+                        flex items-center gap-2">
                         send message
                         <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
                             stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
