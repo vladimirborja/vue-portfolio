@@ -51,7 +51,7 @@ function scrollTo(id) {
 <template>
     <section id="hero" class="relative min-h-screen flex items-center pt-14 overflow-hidden z-0">
         <div 
-            class="absolute inset-0 -z-10 bg-cover bg-center hero-bg"
+            class="absolute inset-0 -z-10 bg-cover bg-center"
             :style="!supportsSDA ? { transform: `translateY(${scrollY * 0.3}px)` } : {}"
         ></div>
 

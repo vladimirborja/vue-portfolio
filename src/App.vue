@@ -2,6 +2,7 @@
 import { ref, onMounted } from 'vue'
 import NavBar from './components/NavBar.vue'
 import BootSequence from './components/BootSequence.vue'
+import AuroraBackground from './components/AuroraBackground.vue'
 import HeroSection from './components/HeroSection.vue'
 import AboutSection from './components/AboutSection.vue'
 import SkillsSection from './components/SkillsSection.vue'
@@ -19,7 +20,8 @@ onMounted(() => {
 
 <template>
   <BootSequence v-if="!booted" @done="booted = true" />
-  <div v-show="booted" class="bg-white dark:bg-[#0a0a0a] min-h-screen transition-colors duration-300">
+  <AuroraBackground v-show="booted" />
+  <div v-show="booted" class="bg-transparent min-h-screen transition-colors duration-300 relative z-10">
     <NavBar />
     <main>
       <HeroSection />
