@@ -1,4 +1,6 @@
 <script setup>
+import PerspectiveCarousel from './PerspectiveCarousel.vue'
+
 const skills = [
     { name: 'HTML', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg' },
     { name: 'CSS', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg' },
@@ -59,23 +61,7 @@ const certifications = [
                     Certifications
                 </div>
                 <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-12 tracking-tight">What I've earned</h2>
-
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                    <div v-for="cert in certifications" :key="cert.name"
-                        class="group rounded-2xl border border-gray-200/60 dark:border-white/10 bg-white/50 dark:bg-white/5 backdrop-blur-md overflow-hidden hover:border-green-500/50 hover:shadow-lg hover:shadow-green-500/5 transition-all duration-300">
-                        <div class="w-full h-48 overflow-hidden bg-gray-100 dark:bg-white/5">
-                            <img
-                                :src="cert.image"
-                                :alt="cert.name"
-                                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                            />
-                        </div>
-                        <div class="p-4">
-                            <p class="font-mono-custom text-[10px] text-green-600 dark:text-green-400 uppercase tracking-widest mb-1">{{ cert.issuer }}</p>
-                            <h3 class="text-sm font-bold text-gray-900 dark:text-white leading-snug">{{ cert.name }}</h3>
-                        </div>
-                    </div>
-                </div>
+                <PerspectiveCarousel :items="certifications" :loop="true" />
             </div>
 
         </div>
