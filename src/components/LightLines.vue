@@ -1,15 +1,19 @@
 <script setup>
-import { ref, onMounted, onUnmounted } from 'vue'
+import { ref, onMounted, onUnmounted, computed } from 'vue'
+import { useTheme } from '../composables/useTheme'
 
 const props = defineProps({
-  linesOpacity: { type: Number, default: 0.05 },
+  linesOpacity: { type: Number, default: 0.08 },
   lightsOpacity: { type: Number, default: 0.9 },
   speedMultiplier: { type: Number, default: 1 },
-  gradientFrom: { type: String, default: '#0a0a0a' },
-  gradientTo: { type: String, default: '#0d1a0d' },
-  lightColor: { type: String, default: '#22c55e' },
-  lineColor: { type: String, default: '#22c55e' },
 })
+
+const { isDark } = useTheme()
+
+const gradientFrom = computed(() => isDark.value ? '#0a0a0a' : '#ffffff')
+const gradientTo = computed(() => isDark.value ? '#0d1a0d' : '#f0fdf4')
+const lightColor = computed(() => isDark.value ? '#22c55e' : '#16a34a')
+const lineColor = computed(() => isDark.value ? '#22c55e' : '#16a34a')
 
 const containerRef = ref(null)
 let frameId = null
@@ -80,7 +84,7 @@ onUnmounted(() => {
 <template>
   <div
     ref="containerRef"
-    class="fixed inset-0 w-full h-full -z-10 overflow-hidden flex justify-center"
+    class="fixed inset-0 w-full h-full -z-10 overflow-hidden flex justify-center transition-colors duration-300"
     :style="{
       background: `linear-gradient(180deg, ${gradientFrom} 0%, ${gradientTo} 100%)`,
     }"
@@ -91,7 +95,6 @@ onUnmounted(() => {
       viewBox="0 0 1920 1080"
       preserveAspectRatio="none"
     >
-      <!-- Static Lines -->
       <g class="lines" :style="{ opacity: linesOpacity }">
         <rect class="line" x="1253.6" width="4.5" height="1080" :style="{ fill: lineColor }" />
         <rect class="line" x="873.3" width="1.8" height="1080" :style="{ fill: lineColor }" />
@@ -112,7 +115,6 @@ onUnmounted(() => {
         <rect class="line" x="1666.4" width="0.9" height="1080" :style="{ fill: lineColor }" />
       </g>
 
-      <!-- Animated Lights -->
       <g class="lights" :style="{ opacity: lightsOpacity }">
         <path class="light1 light" :style="{ fill: lightColor }" d="M619.5,298.4H615v19.5h4.5V298.4z M619.5,674.8H615v9.8h4.5V674.8z M619.5,135.1H615v5.6h4.5V135.1z M619.5,55.5H615v68.7h4.5V55.5z" />
         <path class="light2 light" :style="{ fill: lightColor }" d="M1258.2,531.9h-4.5v8.1h4.5V531.9z M1258.2,497.9h-4.5v17.9h4.5V497.9z M1258.2,0h-4.5v25.3h4.5V0z M1258.2,252.2h-4.5v42.4h4.5V252.2z" />
