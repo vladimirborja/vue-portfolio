@@ -1,19 +1,37 @@
 <script setup>
 import { ref } from 'vue'
+import emailjs from '@emailjs/browser'
 
-const email = 'vladimirborja013@gmail.com'
 const socials = [
     { label: 'github', url: 'https://github.com/vladimirborja' },
     { label: 'linkedin', url: 'https://www.linkedin.com/in/vladimir-borja-03935533b/' },
 ]
 
+const formRef = ref(null)
 const form = ref({ name: '', email: '', message: '' })
 const submitted = ref(false)
+const sending = ref(false)
+const errorMsg = ref('')
 
 function handleSubmit() {
-    submitted.value = true
-    setTimeout(() => { submitted.value = false }, 4000)
-    form.value = { name: '', email: '', message: '' }
+    sending.value = true
+    errorMsg.value = ''
+
+    emailjs.sendForm(
+        'service_t9xawc9',
+        'fjocgqx',
+        formRef.value,
+        { publicKey: 'WBCDEuUVsH6L_Eozu9AVe' }
+    ).then(() => {
+        submitted.value = true
+        sending.value = false
+        setTimeout(() => { submitted.value = false }, 5000)
+        form.value = { name: '', email: '', message: '' }
+    }).catch((error) => {
+        sending.value = false
+        errorMsg.value = 'Something went wrong — please email me directly instead.'
+        console.error('EmailJS error:', error)
+    })
 }
 </script>
 
@@ -74,32 +92,32 @@ function handleSubmit() {
                 </div>
             </div>
 
-            <form @submit.prevent="handleSubmit" v-card-spotlight
+            <form ref="formRef" @submit.prevent="handleSubmit" v-card-spotlight
                 class="card-spotlight rounded-2xl shadow-xl shadow-gray-100/50 dark:shadow-none reveal-item">
                 <div
                     class="card-spotlight-content p-6 md:p-8 rounded-2xl bg-white/50 dark:bg-black/40 backdrop-blur-md flex flex-col gap-5">
                     <div class="relative group/input">
                         <label
                             class="font-mono-custom text-[10px] font-bold text-gray-500 dark:text-gray-400 uppercase tracking-widest block mb-2 transition-colors group-focus-within/input:text-green-600 dark:group-focus-within/input:text-green-400">Name</label>
-                        <input v-model="form.name" type="text" required
+                        <input v-model="form.name" name="user_name" type="text" required
                             placeholder="Juan Dela Cruz"
                             class="w-full bg-gray-50/50 dark:bg-[#080808]/40 border border-gray-200 dark:border-white/10 rounded-xl px-4 py-3 text-gray-900 dark:text-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-green-500/20 focus:border-green-500 transition-all duration-300 placeholder:text-gray-400 dark:placeholder:text-gray-600" />
                     </div>
                     <div class="relative group/input">
                         <label
                             class="font-mono-custom text-[10px] font-bold text-gray-500 dark:text-gray-400 uppercase tracking-widest block mb-2 transition-colors group-focus-within/input:text-green-600 dark:group-focus-within/input:text-green-400">Email</label>
-                        <input v-model="form.email" type="email" required
+                        <input v-model="form.email" name="user_email" type="email" required
                             placeholder="juandelacruz@gmail.com"
                             class="w-full bg-gray-50/50 dark:bg-[#080808]/40 border border-gray-200 dark:border-white/10 rounded-xl px-4 py-3 text-gray-900 dark:text-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-green-500/20 focus:border-green-500 transition-all duration-300 placeholder:text-gray-400 dark:placeholder:text-gray-600" />
                     </div>
                     <div class="relative group/input">
                         <label
                             class="font-mono-custom text-[10px] font-bold text-gray-500 dark:text-gray-400 uppercase tracking-widest block mb-2 transition-colors group-focus-within/input:text-green-600 dark:group-focus-within/input:text-green-400">Message</label>
-                        <textarea v-model="form.message" rows="4" required
-                            placeholder="Hi Juan, I'd like to work with you..."
+                        <textarea v-model="form.message" name="message" rows="4" required
+                            placeholder="Hi Karl, I'd like to work with you..."
                             class="w-full bg-gray-50/50 dark:bg-[#080808]/40 border border-gray-200 dark:border-white/10 rounded-xl px-4 py-3 text-gray-900 dark:text-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-green-500/20 focus:border-green-500 transition-all duration-300 resize-none placeholder:text-gray-400 dark:placeholder:text-gray-600"></textarea>
                     </div>
-                    <button type="submit"
+                    <button type="submit" :disabled="sending"
                         class="group relative inline-flex items-center justify-center font-mono-custom font-bold uppercase text-xs tracking-widest text-black dark:text-black
                         px-6 py-3.5 rounded-xl bg-green-500 border-2 border-green-700
                         transition-all duration-150 ease-[cubic-bezier(0,0,0.58,1)]
@@ -111,9 +129,9 @@ function handleSubmit() {
                         active:translate-y-2
                         active:shadow-[0_0px_0_-2px_#86efac,0_0px_0_0_#15803d,0_0px_0_0_#bbf7d0]
                         dark:active:shadow-[0_0px_0_-2px_#4ade80,0_0px_0_0_#166534,0_0px_0_0_rgba(0,0,0,0)]
-                        flex items-center gap-2">
-                        send message
-                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                        flex items-center gap-2 disabled:opacity-60 disabled:cursor-not-allowed">
+                        {{ sending ? 'sending...' : 'send message' }}
+                        <svg v-if="!sending" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
                             stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
                             class="transition-transform duration-300 group-hover:translate-x-0.5">
                             <line x1="22" y1="2" x2="11" y2="13" />
@@ -121,8 +139,12 @@ function handleSubmit() {
                         </svg>
                     </button>
                     <p v-if="submitted"
-                        class="font-mono-custom text-[10px] text-green-600 dark:text-green-400 text-center animate-fade-in">
-                        Message noted — since this is a frontend-only form, please also reach out via email above.
+                        class="font-mono-custom text-[10px] text-green-600 dark:text-green-400 text-center">
+                        ✓ Message sent — I'll get back to you soon!
+                    </p>
+                    <p v-if="errorMsg"
+                        class="font-mono-custom text-[10px] text-red-500 text-center">
+                        {{ errorMsg }}
                     </p>
                 </div>
             </form>
