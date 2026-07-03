@@ -100,6 +100,7 @@ function scrollTo(id) {
                             <polyline points="6 9 12 15 18 9" />
                         </svg>
                     </button>
+
                     <button @click="scrollTo('contact')"
                         class="group font-mono-custom text-xs uppercase tracking-widest px-6 py-3.5 border border-gray-300 dark:border-white/10 hover:border-green-500 dark:hover:border-green-500 text-gray-700 dark:text-gray-300 hover:text-green-600 dark:hover:text-green-400 bg-white/50 dark:bg-white/5 backdrop-blur hover:bg-gray-100 dark:hover:bg-white/15 transition-all duration-300 rounded-full hover:-translate-y-0.5 flex items-center gap-2">
                         get in touch
@@ -110,6 +111,21 @@ function scrollTo(id) {
                             <polyline points="12 5 19 12 12 19" />
                         </svg>
                     </button>
+
+                    <a
+                        href="/karl-borja-cv.pdf"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="group font-mono-custom text-xs uppercase tracking-widest px-6 py-3.5 border border-gray-300 dark:border-white/10 hover:border-green-500 dark:hover:border-green-500 text-gray-700 dark:text-gray-300 hover:text-green-600 dark:hover:text-green-400 bg-white/50 dark:bg-white/5 backdrop-blur hover:bg-gray-100 dark:hover:bg-white/15 transition-all duration-300 rounded-full hover:-translate-y-0.5 flex items-center gap-2">
+                        view cv
+                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
+                            class="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
+                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                            <polyline points="15 3 21 3 21 9" />
+                            <line x1="10" y1="14" x2="21" y2="3" />
+                        </svg>
+                    </a>
                 </div>
             </div>
 
