@@ -19,7 +19,7 @@ function handleSubmit() {
 
     emailjs.sendForm(
         'service_t9xawc9',
-        'fjocgqx',
+        'template_6lbyghd',
         formRef.value,
         { publicKey: 'ZEoBbTHhZIMiSMISI' }
     ).then(() => {
