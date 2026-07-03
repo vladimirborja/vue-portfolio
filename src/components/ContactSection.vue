@@ -21,7 +21,7 @@ function handleSubmit() {
         'service_t9xawc9',
         'fjocgqx',
         formRef.value,
-        { publicKey: 'WBCDEuUVsH6L_Eozu9AVe' }
+        { publicKey: 'ZEoBbTHhZIMiSMISI' }
     ).then(() => {
         submitted.value = true
         sending.value = false
