@@ -256,4 +256,32 @@ function itemStyle(index) {
   0%   { opacity: 0; transform: translateY(6px) scale(0.8); }
   100% { opacity: 1; transform: translateY(0px) scale(1);   }
 }
+
+/* Adjustments for ultra-small mobile viewports (e.g. 320px Mobile S) */
+@media (max-width: 360px) {
+  .glass-dock {
+    padding-left: 0.5rem !important; /* px-2 */
+    padding-right: 0.5rem !important;
+    padding-top: 0.5rem !important; /* py-2 */
+    padding-bottom: 0.5rem !important;
+    gap: 0.25rem !important; /* gap-1 */
+    border-radius: 1rem !important;
+  }
+
+  .dock-item {
+    width: 2rem !important; /* w-8 */
+    height: 2rem !important; /* h-8 */
+    border-radius: 0.5rem !important;
+  }
+
+  .icon-spin {
+    width: 2rem !important; /* w-8 */
+    height: 2rem !important; /* h-8 */
+  }
+
+  .icon-spin svg {
+    width: 1.125rem !important; /* 18px */
+    height: 1.125rem !important;
+  }
+}
 </style>

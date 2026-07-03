@@ -49,7 +49,7 @@ function scrollTo(id) {
 </script>
 
 <template>
-    <section id="hero" class="relative min-h-screen flex items-center pt-14 overflow-hidden z-0">
+    <section id="hero" class="relative min-h-screen flex items-center pt-28 lg:pt-14 overflow-hidden z-0">
         <div 
             class="absolute inset-0 -z-10 bg-cover bg-center"
             :style="!supportsSDA ? { transform: `translateY(${scrollY * 0.3}px)` } : {}"
@@ -92,7 +92,7 @@ function scrollTo(id) {
 
                 <div class="flex gap-4 flex-wrap">
                     <button @click="scrollTo('projects')"
-                        class="group font-mono-custom text-xs uppercase tracking-widest px-6 py-3.5 bg-green-600 hover:bg-green-500 dark:bg-green-50 dark:hover:bg-green-400 text-white dark:text-black font-bold transition-all duration-300 rounded-full shadow-lg shadow-green-600/20 dark:shadow-green-500/10 hover:shadow-green-500/30 dark:hover:shadow-green-400/20 hover:-translate-y-0.5 flex items-center gap-2">
+                        class="group font-mono-custom text-xs uppercase tracking-widest px-6 py-3.5 border border-gray-300 dark:border-white/10 hover:border-green-500 dark:hover:border-green-500 text-gray-700 dark:text-gray-300 hover:text-green-600 dark:hover:text-green-400 bg-white/50 dark:bg-white/5 backdrop-blur hover:bg-gray-100 dark:hover:bg-white/15 transition-all duration-300 rounded-full hover:-translate-y-0.5 flex items-center gap-2">
                         view my work
                         <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
                             stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
@@ -131,7 +131,7 @@ function scrollTo(id) {
 
             <div class="flex-shrink-0 relative group/hero-avatar w-full md:w-auto flex justify-center">
                 <div v-card-spotlight v-tilt
-                    class="card-spotlight relative w-60 h-60 sm:w-72 sm:h-72 md:w-[420px] md:h-[420px] rounded-full shadow-2xl transition-all duration-500 hover:scale-[1.02]">
+                    class="card-spotlight relative w-60 h-60 sm:w-72 sm:h-72 md:w-80 md:h-80 lg:w-[420px] lg:h-[420px] rounded-full shadow-2xl transition-all duration-500 hover:scale-[1.02]">
                     <div class="card-spotlight-content w-full h-full rounded-full p-1 bg-white/50 dark:bg-black/40 backdrop-blur-md overflow-hidden">
                         <div class="relative w-full h-full rounded-full overflow-hidden bg-green-50 dark:bg-green-950/20 flex items-center justify-center border border-green-200/30">
                             <img src="../assets/images/profile.JPG" alt="Karl Vladimir B. Borja"
