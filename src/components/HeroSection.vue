@@ -11,7 +11,7 @@ const scrollY = ref(0)
 const handleMouseMove = (e) => {
     const x = e.clientX - window.innerWidth / 2
     const y = e.clientY - window.innerHeight / 2
-    
+
     bgTransform1.value = `translate3d(${x * 0.04}px, ${y * 0.04}px, 0)`
     bgTransform2.value = `translate3d(${x * -0.025}px, ${y * -0.025}px, 0)`
 }
@@ -23,12 +23,12 @@ const handleScroll = () => {
 onMounted(() => {
     window.addEventListener('mousemove', handleMouseMove)
 
-    supportsSDA.value = typeof CSS !== 'undefined' && 
-                        CSS.supports && 
-                        CSS.supports('(animation-timeline: view()) and (animation-range: entry)')
+    supportsSDA.value = typeof CSS !== 'undefined' &&
+        CSS.supports &&
+        CSS.supports('(animation-timeline: view()) and (animation-range: entry)')
 
-    const prefersReducedMotion = typeof window !== 'undefined' && 
-                                 window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    const prefersReducedMotion = typeof window !== 'undefined' &&
+        window.matchMedia('(prefers-reduced-motion: reduce)').matches
 
     if (!supportsSDA.value && !prefersReducedMotion) {
         window.addEventListener('scroll', handleScroll, { passive: true })
@@ -49,20 +49,17 @@ function scrollTo(id) {
 </script>
 
 <template>
-    <section id="hero" class="relative min-h-screen flex items-center pt-28 lg:pt-14 overflow-hidden z-0">
-        <div 
-            class="absolute inset-0 -z-10 bg-cover bg-center"
-            :style="!supportsSDA ? { transform: `translateY(${scrollY * 0.3}px)` } : {}"
-        ></div>
+    <section id="hero" class="relative min-h-screen flex items-center pt-36 lg:pt-20 overflow-hidden z-0">
+        <div class="absolute inset-0 -z-10 bg-cover bg-center"
+            :style="!supportsSDA ? { transform: `translateY(${scrollY * 0.3}px)` } : {}"></div>
 
-        <div
-            class="absolute top-1/4 left-1/4 w-[300px] md:w-[400px] h-[300px] md:h-[400px] rounded-full bg-green-500/10 dark:bg-green-500/5 blur-[80px] md:blur-[120px] -z-10 animate-pulse pointer-events-none"
+        <div class="absolute top-1/4 left-1/4 w-[300px] md:w-[400px] h-[300px] md:h-[400px] rounded-full bg-green-500/10 dark:bg-green-500/5 blur-[80px] md:blur-[120px] -z-10 animate-pulse pointer-events-none"
             :style="{ transform: `translate(-50%, -50%) ${bgTransform1}` }">
         </div>
         <div class="absolute bottom-1/4 right-1/4 w-[350px] md:w-[500px] h-[350px] md:h-[500px] rounded-full bg-emerald-600/10 dark:bg-emerald-950/20 blur-[100px] md:blur-[150px] -z-10 animate-pulse pointer-events-none"
             :style="{ transform: `translate(50%, 50%) ${bgTransform2}`, animationDuration: '8s' }"></div>
 
-        <div class="max-w-7xl mx-auto px-6 py-1 w-full relative flex flex-col-reverse md:flex-row items-center justify-between gap-12">
+        <div class="max-w-7xl mx-auto px-6 py-1 w-full relative flex flex-col-reverse lg:flex-row items-center gap-12">
 
             <div class="flex-1 w-full text-left">
                 <div
@@ -71,13 +68,12 @@ function scrollTo(id) {
                     Karl Vladimir B. Borja
                 </div>
 
-                <h1 class="text-5xl md:text-7xl font-bold text-gray-900 dark:text-white leading-tight mb-2 tracking-tight">
+                <h1
+                    class="text-5xl md:text-7xl font-bold text-gray-900 dark:text-white leading-tight mb-2 tracking-tight">
                     <FlipText text="Hi, I'm" class="mr-3" :duration="2.8" />
-                    <FlipText
-                        text="Karl."
+                    <FlipText text="Karl."
                         class="emerald-500 dark:from-green-400 dark:to-emerald-300 text-green-600 dark:text-green-400"
-                        :duration="2.8"
-                    />
+                        :duration="2.8" />
                 </h1>
 
                 <h2 class="text-3xl md:text-5xl font-bold text-gray-600 dark:text-gray-400 mb-8 tracking-tight">
@@ -112,10 +108,7 @@ function scrollTo(id) {
                         </svg>
                     </button>
 
-                    <a
-                        href="/karl-borja-cv.pdf"
-                        target="_blank"
-                        rel="noopener noreferrer"
+                    <a href="/karl-borja-cv.pdf" target="_blank" rel="noopener noreferrer"
                         class="group font-mono-custom text-xs uppercase tracking-widest px-6 py-3.5 border border-gray-300 dark:border-white/10 hover:border-green-500 dark:hover:border-green-500 text-gray-700 dark:text-gray-300 hover:text-green-600 dark:hover:text-green-400 bg-white/50 dark:bg-white/5 backdrop-blur hover:bg-gray-100 dark:hover:bg-white/15 transition-all duration-300 rounded-full hover:-translate-y-0.5 flex items-center gap-2">
                         view cv
                         <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
@@ -129,11 +122,13 @@ function scrollTo(id) {
                 </div>
             </div>
 
-            <div class="flex-shrink-0 relative group/hero-avatar w-full md:w-auto flex justify-center">
+            <div class="flex-shrink-0 relative group/hero-avatar w-full lg:w-auto flex justify-center lg:ml-auto">
                 <div v-card-spotlight v-tilt
-                    class="card-spotlight relative w-60 h-60 sm:w-72 sm:h-72 md:w-80 md:h-80 lg:w-[420px] lg:h-[420px] rounded-full shadow-2xl transition-all duration-500 hover:scale-[1.02]">
-                    <div class="card-spotlight-content w-full h-full rounded-full p-1 bg-white/50 dark:bg-black/40 backdrop-blur-md overflow-hidden">
-                        <div class="relative w-full h-full rounded-full overflow-hidden bg-green-50 dark:bg-green-950/20 flex items-center justify-center border border-green-200/30">
+                    class="card-spotlight relative w-72 h-72 sm:w-80 sm:h-80 md:w-[480px] md:h-[480px] lg:w-[560px] lg:h-[560px] rounded-full shadow-2xl transition-all duration-500 hover:scale-[1.02]">
+                    <div
+                        class="card-spotlight-content w-full h-full rounded-full p-1 bg-white/50 dark:bg-black/40 backdrop-blur-md overflow-hidden">
+                        <div
+                            class="relative w-full h-full rounded-full overflow-hidden bg-green-50 dark:bg-green-950/20 flex items-center justify-center border border-green-200/30">
                             <img src="../assets/images/profile.JPG" alt="Karl Vladimir B. Borja"
                                 class="w-full h-full object-cover object-top transition-transform duration-700 group-hover/hero-avatar:scale-105"
                                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'" />

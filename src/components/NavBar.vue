@@ -48,7 +48,7 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <nav class="fixed top-12 md:top-6 lg:top-18 left-1/2 -translate-x-1/2 z-50">
+  <nav class="fixed top-12 md:top-16 lg:top-18 left-1/2 -translate-x-1/2 z-50">
     <GlassDock
       :items="dockItems"
       :active-id="activeSection"
