@@ -81,7 +81,7 @@ function scrollTo(id) {
                 </h1>
 
                 <h2 class="text-3xl md:text-5xl font-bold text-gray-600 dark:text-gray-400 mb-8 tracking-tight">
-                    <FlipText text="Full-Stack Developer." :duration="3.2" />
+                    <FlipText text="A Web Developer." :duration="3.2" />
                 </h2>
 
                 <p class="text-gray-700 dark:text-gray-400 text-lg max-w-xl leading-relaxed mb-12">
