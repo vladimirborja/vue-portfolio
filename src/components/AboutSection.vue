@@ -23,28 +23,36 @@ import FlipText from './ui/FlipText.vue'
 
                 <div v-card-spotlight
                     class="card-spotlight md:col-span-2 rounded-2xl shadow-xl shadow-gray-100/50 dark:shadow-none reveal-item">
-                    <div class="card-spotlight-content p-6 md:p-8 rounded-2xl flex flex-col justify-center bg-white/50 dark:bg-black/40 backdrop-blur-md h-full">
-                        <span class="font-mono-custom text-xs text-green-600 dark:text-green-400 font-bold uppercase tracking-wider">Lead Capstone Dev</span>
+                    <div
+                        class="card-spotlight-content p-6 md:p-8 rounded-2xl flex flex-col justify-center bg-white/50 dark:bg-black/40 backdrop-blur-md h-full">
+                        <span
+                            class="font-mono-custom text-xs text-green-600 dark:text-green-400 font-bold uppercase tracking-wider">Lead
+                            Capstone Dev</span>
                         <h3 class="text-2xl font-bold text-gray-900 dark:text-white mt-1 mb-3">
                             <FlipText text="Karl Vladimir B. Borja" :duration="3.2" />
                         </h3>
                         <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
-                            A passionate developer majoring in Web Development. I build functional, high-performance web products that solve real-world problems.
+                            A passionate developer majoring in Web Development. I build functional, high-performance web
+                            products that solve real-world problems.
                         </p>
                     </div>
                 </div>
 
                 <div v-card-spotlight
                     class="card-spotlight rounded-2xl shadow-xl shadow-gray-100/50 dark:shadow-none reveal-item">
-                    <div class="card-spotlight-content p-6 md:p-8 rounded-2xl flex flex-col justify-between bg-white/50 dark:bg-black/40 backdrop-blur-md h-full">
+                    <div
+                        class="card-spotlight-content p-6 md:p-8 rounded-2xl flex flex-col justify-between bg-white/50 dark:bg-black/40 backdrop-blur-md h-full">
                         <div>
-                            <span class="font-mono-custom text-xs text-gray-400 uppercase tracking-widest block mb-4">Availability</span>
+                            <span
+                                class="font-mono-custom text-xs text-gray-400 uppercase tracking-widest block mb-4">Availability</span>
                             <div class="flex items-center gap-3">
                                 <span class="relative flex h-3 w-3">
-                                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                                    <span
+                                        class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
                                     <span class="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
                                 </span>
-                                <span class="text-lg font-bold text-gray-900 dark:text-white">Open to Opportunities</span>
+                                <span class="text-lg font-bold text-gray-900 dark:text-white">Open to
+                                    Opportunities</span>
                             </div>
                             <p class="text-gray-500 dark:text-gray-400 text-xs leading-relaxed mt-2">
                                 Ready for junior developer roles and remote freelance projects. Let's build together!
@@ -55,24 +63,33 @@ import FlipText from './ui/FlipText.vue'
                             <a href="https://github.com/vladimirborja" target="_blank"
                                 class="p-2 rounded-full bg-gray-100 hover:bg-green-500/10 dark:bg-white/5 dark:hover:bg-green-500/10 text-gray-600 hover:text-green-600 dark:text-gray-400 dark:hover:text-green-400 hover:scale-110 transition-all duration-300"
                                 aria-label="GitHub">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-github">
-                                    <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" />
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="lucide lucide-github">
+                                    <path
+                                        d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" />
                                     <path d="M9 18c-4.51 2-5-2-7-2" />
                                 </svg>
                             </a>
                             <a href="https://www.linkedin.com/in/vladimir-borja-03935533b/" target="_blank"
                                 class="p-2 rounded-full bg-gray-100 hover:bg-green-500/10 dark:bg-white/5 dark:hover:bg-green-500/10 text-gray-600 hover:text-green-600 dark:text-gray-400 dark:hover:text-green-400 hover:scale-110 transition-all duration-300"
                                 aria-label="LinkedIn">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-linkedin">
-                                    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="lucide lucide-linkedin">
+                                    <path
+                                        d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
                                     <rect width="4" height="12" x="2" y="9" />
                                     <circle cx="4" cy="4" r="2" />
                                 </svg>
                             </a>
-                            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=vladimirborja013@gmail.com" target="_blank"
+                            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=vladimirborja013@gmail.com"
+                                target="_blank"
                                 class="p-2 rounded-full bg-gray-100 hover:bg-green-500/10 dark:bg-white/5 dark:hover:bg-green-500/10 text-gray-600 hover:text-green-600 dark:text-gray-400 dark:hover:text-green-400 hover:scale-110 transition-all duration-300"
                                 aria-label="Email">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-mail">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="lucide lucide-mail">
                                     <path d="M22 13V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h9" />
                                     <path d="m22 17-5-4-5 4" />
                                     <path d="m2 17 5-4 5 4" />
@@ -85,14 +102,20 @@ import FlipText from './ui/FlipText.vue'
 
                 <div v-card-spotlight
                     class="card-spotlight rounded-2xl shadow-xl shadow-gray-100/50 dark:shadow-none reveal-item">
-                    <div class="card-spotlight-content p-6 md:p-8 rounded-2xl flex flex-col bg-white/50 dark:bg-black/40 backdrop-blur-md h-full">
-                        <span class="font-mono-custom text-xs text-gray-400 uppercase tracking-widest block mb-4">Milestones</span>
+                    <div
+                        class="card-spotlight-content p-6 md:p-8 rounded-2xl flex flex-col bg-white/50 dark:bg-black/40 backdrop-blur-md h-full">
+                        <span
+                            class="font-mono-custom text-xs text-gray-400 uppercase tracking-widest block mb-4">Milestones</span>
 
                         <div class="space-y-4">
                             <div class="flex items-start gap-3">
-                                <div class="mt-1 flex items-center justify-center p-1.5 rounded-lg bg-green-500/10 text-green-600 dark:text-green-400">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-graduation-cap">
-                                        <path d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0z" />
+                                <div
+                                    class="mt-1 flex items-center justify-center p-1.5 rounded-lg bg-green-500/10 text-green-600 dark:text-green-400">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" class="lucide lucide-graduation-cap">
+                                        <path
+                                            d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0z" />
                                         <path d="M6 12v5c0 2 2 3 6 3s6-1 6-3v-5" />
                                     </svg>
                                 </div>
@@ -102,8 +125,11 @@ import FlipText from './ui/FlipText.vue'
                                 </div>
                             </div>
                             <div class="flex items-start gap-3">
-                                <div class="mt-1 flex items-center justify-center p-1.5 rounded-lg bg-green-500/10 text-green-600 dark:text-green-400">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-calendar">
+                                <div
+                                    class="mt-1 flex items-center justify-center p-1.5 rounded-lg bg-green-500/10 text-green-600 dark:text-green-400">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" class="lucide lucide-calendar">
                                         <rect width="18" height="18" x="3" y="4" rx="2" ry="2" />
                                         <line x1="16" y1="2" x2="16" y2="6" />
                                         <line x1="8" y1="2" x2="8" y2="6" />
@@ -115,20 +141,60 @@ import FlipText from './ui/FlipText.vue'
                                     <p class="text-xs text-gray-500 dark:text-gray-400">April 2026</p>
                                 </div>
                             </div>
+                            <div class="flex items-start gap-3">
+                                <div
+                                    class="mt-1 flex items-center justify-center p-1.5 rounded-lg bg-green-500/10 text-green-600 dark:text-green-400">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round">
+                                        <path
+                                            d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z" />
+                                        <polyline points="14 2 14 8 20 8" />
+                                        <line x1="16" y1="13" x2="8" y2="13" />
+                                        <line x1="16" y1="17" x2="8" y2="17" />
+                                        <line x1="10" y1="9" x2="8" y2="9" />
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h4 class="text-sm font-bold text-gray-900 dark:text-white">Research Colloquium</h4>
+                                    <p class="text-xs text-gray-500 dark:text-gray-400">April 2026</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <div
+                                    class="mt-1 flex items-center justify-center p-1.5 rounded-lg bg-green-500/10 text-green-600 dark:text-green-400">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round">
+                                        <circle cx="12" cy="8" r="6" />
+                                        <path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11" />
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h4 class="text-sm font-bold text-gray-900 dark:text-white">Dean's Lister</h4>
+                                    <p class="text-xs text-gray-500 dark:text-gray-400">June 2025</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
 
                 <div v-card-spotlight
                     class="card-spotlight md:col-span-2 rounded-2xl shadow-xl shadow-gray-100/50 dark:shadow-none reveal-item">
-                    <div class="card-spotlight-content p-6 md:p-8 rounded-2xl flex flex-col bg-white/50 dark:bg-black/40 backdrop-blur-md h-full">
-                        <span class="font-mono-custom text-xs text-gray-400 uppercase tracking-widest block mb-4">Background</span>
+                    <div
+                        class="card-spotlight-content p-6 md:p-8 rounded-2xl flex flex-col bg-white/50 dark:bg-black/40 backdrop-blur-md h-full">
+                        <span
+                            class="font-mono-custom text-xs text-gray-400 uppercase tracking-widest block mb-4">Background</span>
                         <div class="space-y-4 text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
                             <p>
-                                I'm a fresh Information Technology graduate who served as lead developer on my Capstone project, guiding my team to engineer a real-world web platform. I focus heavily on writing clean, reusable, and performant code.
+                                I'm a fresh Information Technology graduate who served as lead developer on my Capstone
+                                project, guiding my team to engineer a real-world web platform. I focus heavily on
+                                writing clean, reusable, and performant code.
                             </p>
                             <p>
-                                I have a deep passion for full-stack engineering, modern frontend frameworks (such as Vue 3), and robust databases. Currently growing my capabilities through company contracts and creative freelance opportunities.
+                                I have a deep passion for full-stack engineering, modern frontend frameworks (such as
+                                Vue 3), and robust databases. Currently growing my capabilities through company
+                                contracts and creative freelance opportunities.
                             </p>
                         </div>
                     </div>
