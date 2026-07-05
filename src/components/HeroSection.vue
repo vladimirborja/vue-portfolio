@@ -80,10 +80,8 @@ function scrollTo(id) {
                     <FlipText text="A Web Developer." :duration="3.2" />
                 </h2>
 
-                <p class="text-gray-700 dark:text-gray-400 text-lg max-w-xl leading-relaxed mb-12">
-                    Fresh Bachelor of Science in Information Technology graduate, Major in Web Development.
-                    I build clean, fast, and modern web applications — eager to grow and contribute to
-                    real-world projects.
+                <p class="text-justify text-gray-700 dark:text-gray-400 text-lg max-w-xl leading-relaxed mb-12">
+                    I just graduated with a Bachelor of Science in Information Technology, majoring in Web Development. I build clean, fast, and modern web apps and I'm excited to grow and contribute to real projects.
                 </p>
 
                 <div class="flex gap-4 flex-wrap">

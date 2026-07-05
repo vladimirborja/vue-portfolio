@@ -185,16 +185,16 @@ import FlipText from './ui/FlipText.vue'
                         class="card-spotlight-content p-6 md:p-8 rounded-2xl flex flex-col bg-white/50 dark:bg-black/40 backdrop-blur-md h-full">
                         <span
                             class="font-mono-custom text-xs text-gray-400 uppercase tracking-widest block mb-4">Background</span>
-                        <div class="space-y-4 text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
+                        <div class="space-y-4 text-sm text-gray-600 dark:text-gray-400 leading-relaxed text-justify">
                             <p>
-                                I'm a fresh Information Technology graduate who served as lead developer on my Capstone
-                                project, guiding my team to engineer a real-world web platform. I focus heavily on
-                                writing clean, reusable, and performant code.
+                                I'm a fresh Information Technology graduate with a passion for building clean, fast, and
+                                well-organized web applications. I enjoy working on both the frontend and backend, and I
+                                take pride in writing code that is easy to read and maintain.
                             </p>
                             <p>
-                                I have a deep passion for full-stack engineering, modern frontend frameworks (such as
-                                Vue 3), and robust databases. Currently growing my capabilities through company
-                                contracts and creative freelance opportunities.
+                                I love working with modern tools like Vue 3 and Laravel, and I'm always looking to learn
+                                and grow. Right now I'm gaining real-world experience through company work and personal
+                                projects.
                             </p>
                         </div>
                     </div>
