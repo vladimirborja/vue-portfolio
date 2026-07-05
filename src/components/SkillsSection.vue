@@ -23,13 +23,13 @@ const skills = [
 ]
 
 const certifications = [
-    { name: 'Cyber Threat Management', issuer: 'Cisco', image: '/src/assets/images/cyber_threat.jpg' },
-    { name: 'Cybersecurity Essentials', issuer: 'Cisco', image: '/src/assets/images/cybersec.jpg' },
-    { name: 'Introduction to Networks', issuer: 'Cisco', image: '/src/assets/images/itn.jpg' },
-    { name: 'Legacy JavaScript Algorithms and Data Structures V7', issuer: 'freeCodeCamp', image: '/src/assets/images/js_algo.jpg' },
-    { name: 'Legacy Responsive Web Design V8', issuer: 'freeCodeCamp', image: '/src/assets/images/legacy_web_design.jpg' },
-    { name: 'SEO Certified', issuer: 'HubSpot', image: '/src/assets/images/SEO.jpg' },
-    { name: 'HubSpot SEO II Certified', issuer: 'HubSpot', image: '/src/assets/images/SEO2.jpg' },
+    { name: 'Cyber Threat Management', issuer: 'Cisco', image: '/images/cyber_threat.jpg' },
+    { name: 'Cybersecurity Essentials', issuer: 'Cisco', image: '/images/cybersec.jpg' },
+    { name: 'Introduction to Networks', issuer: 'Cisco', image: '/images/itn.jpg' },
+    { name: 'Legacy JavaScript Algorithms and Data Structures V7', issuer: 'freeCodeCamp', image: '/images/js_algo.jpg' },
+    { name: 'Legacy Responsive Web Design V8', issuer: 'freeCodeCamp', image: '/images/legacy_web_design.jpg' },
+    { name: 'SEO Certified', issuer: 'HubSpot', image: '/images/SEO.jpg' },
+    { name: 'HubSpot SEO II Certified', issuer: 'HubSpot', image: '/images/SEO2.jpg' },
 ]
 </script>
 
