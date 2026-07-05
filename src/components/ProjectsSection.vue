@@ -4,6 +4,7 @@ import FlipText from './ui/FlipText.vue'
 import DiagonalCarousel from './ui/DiagonalCarousel.vue'
 import seseImg from '../assets/images/sese.png'
 import ratingBlogImg from '../assets/images/wordpress.jpg'
+import portfolioImg from '../assets/images/web-portfolio.png'
 
 const activeIndex = ref(0)
 
@@ -17,12 +18,21 @@ const projects = [
         image: seseImg,
     },
     {
-        name: 'Vladimir\'s Rating Blog',
+        name: "Vladimir's Rating Blog",
         desc: 'A personalized blog platform built on WordPress focused on reviewing and rating movies, games, or tech products with interactive discussions and custom layout schemes.',
         tags: ['WordPress', 'CMS', 'CSS'],
         link: 'https://vladimirsratingblog5.wordpress.com/',
         status: 'Blog Website',
         image: ratingBlogImg,
+    },
+    {
+        name: 'Personal Portfolio',
+        desc: 'A modern personal portfolio website built with Vue 3 and TailwindCSS, featuring a dark/light mode toggle, animated background, perspective carousel for certifications, and a contact form powered by EmailJS.',
+        tags: ['Vue 3', 'TailwindCSS', 'Vite', 'Vengeance UI'],
+        repo: 'https://github.com/vladimirborja/vue-portfolio',
+        link: 'https://vladimirborja.vercel.app/',
+        status: 'Personal Project',
+        image: portfolioImg,
     },
 ]
 
@@ -94,43 +104,46 @@ const activeProject = computed(() => projects[activeIndex.value])
                         </span>
                     </div>
 
-                    <a v-if="activeProject.repo" :href="activeProject.repo" target="_blank"
-                        class="inline-flex items-center gap-2 font-mono-custom text-xs text-gray-500 dark:text-gray-400 hover:text-green-600 dark:hover:text-green-400 transition-colors w-fit group/btn">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24"
-                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                            stroke-linejoin="round" class="lucide lucide-github">
-                            <path
-                                d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" />
-                            <path d="M9 18c-4.51 2-5-2-7-2" />
-                        </svg>
-                        Repository
-                        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24"
-                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                            stroke-linejoin="round"
-                            class="lucide lucide-arrow-up-right transition-transform group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5">
-                            <line x1="7" y1="17" x2="17" y2="7" />
-                            <polyline points="7 7 17 7 17 17" />
-                        </svg>
-                    </a>
-                    <a v-else-if="activeProject.link" :href="activeProject.link" target="_blank"
-                        class="inline-flex items-center gap-2 font-mono-custom text-xs text-gray-500 dark:text-gray-400 hover:text-green-600 dark:hover:text-green-400 transition-colors w-fit group/btn">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24"
-                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                            stroke-linejoin="round" class="lucide lucide-globe">
-                            <circle cx="12" cy="12" r="10" />
-                            <line x1="2" y1="12" x2="22" y2="12" />
-                            <path
-                                d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
-                        </svg>
-                        Live Site
-                        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24"
-                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                            stroke-linejoin="round"
-                            class="lucide lucide-arrow-up-right transition-transform group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5">
-                            <line x1="7" y1="17" x2="17" y2="7" />
-                            <polyline points="7 7 17 7 17 17" />
-                        </svg>
-                    </a>
+                    <div class="flex items-center gap-4">
+                        <a v-if="activeProject.repo" :href="activeProject.repo" target="_blank"
+                            class="inline-flex items-center gap-2 font-mono-custom text-xs text-gray-500 dark:text-gray-400 hover:text-green-600 dark:hover:text-green-400 transition-colors w-fit group/btn">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path
+                                    d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" />
+                                <path d="M9 18c-4.51 2-5-2-7-2" />
+                            </svg>
+                            Repository
+                            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round"
+                                class="transition-transform group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5">
+                                <line x1="7" y1="17" x2="17" y2="7" />
+                                <polyline points="7 7 17 7 17 17" />
+                            </svg>
+                        </a>
+
+                        <a v-if="activeProject.link" :href="activeProject.link" target="_blank"
+                            class="inline-flex items-center gap-2 font-mono-custom text-xs text-gray-500 dark:text-gray-400 hover:text-green-600 dark:hover:text-green-400 transition-colors w-fit group/btn">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10" />
+                                <line x1="2" y1="12" x2="22" y2="12" />
+                                <path
+                                    d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+                            </svg>
+                            Live Site
+                            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round"
+                                class="transition-transform group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5">
+                                <line x1="7" y1="17" x2="17" y2="7" />
+                                <polyline points="7 7 17 7 17 17" />
+                            </svg>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
