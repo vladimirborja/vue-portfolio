@@ -123,6 +123,48 @@ function scrollTo(id) {
             </div>
 
             <div class="flex-shrink-0 relative group/hero-avatar w-full lg:w-auto flex justify-center lg:ml-auto">
+                <!-- Rotating glow ring -->
+                <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+                    <svg class="absolute w-[calc(100%+32px)] h-[calc(100%+32px)] animate-spin-slow"
+                        viewBox="0 0 100 100"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                    >
+                        <defs>
+                            <linearGradient id="glowGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                                <stop offset="0%" stop-color="#22c55e" stop-opacity="0" />
+                                <stop offset="50%" stop-color="#22c55e" stop-opacity="1" />
+                                <stop offset="100%" stop-color="#4ade80" stop-opacity="0" />
+                            </linearGradient>
+                        </defs>
+                        <circle
+                            cx="50" cy="50" r="47"
+                            stroke="url(#glowGradient)"
+                            stroke-width="1.5"
+                            stroke-linecap="round"
+                            stroke-dasharray="80 220"
+                            fill="none"
+                        />
+                    </svg>
+                    <!-- Outer faint ring -->
+                    <svg class="absolute w-[calc(100%+48px)] h-[calc(100%+48px)] animate-spin-slow"
+                        style="animation-direction: reverse; animation-duration: 18s;"
+                        viewBox="0 0 100 100"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                    >
+                        <circle
+                            cx="50" cy="50" r="47"
+                            stroke="#22c55e"
+                            stroke-width="0.5"
+                            stroke-linecap="round"
+                            stroke-dasharray="30 270"
+                            stroke-opacity="0.3"
+                            fill="none"
+                        />
+                    </svg>
+                </div>
+
                 <div v-card-spotlight v-tilt
                     class="card-spotlight relative w-72 h-72 sm:w-80 sm:h-80 md:w-[480px] md:h-[480px] lg:w-[560px] lg:h-[560px] rounded-full shadow-2xl transition-all duration-500 hover:scale-[1.02]">
                     <div
