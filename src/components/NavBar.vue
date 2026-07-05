@@ -13,7 +13,7 @@ function scrollTo(id) {
 const dockItems = computed(() => [
   { title: 'Home', id: 'hero', icon: 'home', onClick: () => scrollTo('hero') },
   { title: 'About', id: 'about', icon: 'about', onClick: () => scrollTo('about') },
-  { title: 'Skills', id: 'skills', icon: 'skills', onClick: () => scrollTo('skills') },
+  { title: 'Tech Stack', id: 'skills', icon: 'skills', onClick: () => scrollTo('skills') },
   { title: 'Projects', id: 'projects', icon: 'projects', onClick: () => scrollTo('projects') },
   { title: 'Contact', id: 'contact', icon: 'contact', onClick: () => scrollTo('contact') },
   {
