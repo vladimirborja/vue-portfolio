@@ -1,38 +1,51 @@
-# .
+# Karl Vladimir B. Borja — Personal Portfolio
 
-This template should help get you started developing with Vue 3 in Vite.
+A modern personal portfolio website built with Vue 3 and TailwindCSS, showcasing my projects, skills, certifications, and contact information.
 
-## Recommended IDE Setup
+## 🔗 Live Site
+[vladimirborja.vercel.app](https://vladimirborja.vercel.app/)
 
-[VS Code](https://code.visualstudio.com/) + [Vue (Official)](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+## ✨ Features
+- Terminal-style boot sequence with kinetic text loader
+- Animated background with Light Lines effect
+- Dark / Light mode toggle
+- Smooth scroll reveal animations
+- Perspective carousel for certifications with lightbox viewer
+- Diagonal carousel for projects
+- Contact form powered by EmailJS
+- Fully responsive design
+- CV download / view support
 
-## Recommended Browser Setup
+## 🛠️ Tech Stack
+- **Vue 3** — Frontend framework
+- **TailwindCSS** — Utility-first CSS
+- **Vite** — Build tool
+- **EmailJS** — Contact form email service
+- **Vengeance UI** — UI components
 
-- Chromium-based browsers (Chrome, Edge, Brave, etc.):
-  - [Vue.js devtools](https://chromewebstore.google.com/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd)
-  - [Turn on Custom Object Formatter in Chrome DevTools](http://bit.ly/object-formatters)
-- Firefox:
-  - [Vue.js devtools](https://addons.mozilla.org/en-US/firefox/addon/vue-js-devtools/)
-  - [Turn on Custom Object Formatter in Firefox DevTools](https://fxdx.dev/firefox-devtools-custom-object-formatters/)
+## 📁 Sections
+- **Hero** — Introduction with animated flip text
+- **About** — Background, education, and social links
+- **Tech Stack** — Skills and tools with icons
+- **Certifications** — Certificates with perspective carousel
+- **Projects** — SESE, Rating Blog, Personal Portfolio
+- **Contact** — EmailJS-powered contact form
 
-## Customize configuration
-
-See [Vite Configuration Reference](https://vite.dev/config/).
-
-## Project Setup
-
-```sh
+## 🚀 Run Locally
+```bash
+git clone https://github.com/vladimirborja/vue-portfolio.git
+cd vue-portfolio
 npm install
-```
-
-### Compile and Hot-Reload for Development
-
-```sh
 npm run dev
 ```
 
-### Compile and Minify for Production
-
-```sh
+## 📦 Build
+```bash
 npm run build
 ```
+
+## 👤 Author
+**Karl Vladimir B. Borja**
+- GitHub: [@vladimirborja](https://github.com/vladimirborja)
+- LinkedIn: [vladimir-borja](https://www.linkedin.com/in/vladimir-borja-03935533b/)
+- Email: vladimirborja013@gmail.com
