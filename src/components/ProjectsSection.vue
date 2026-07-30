@@ -34,6 +34,15 @@ const projects = [
         status: 'Personal Project',
         image: portfolioImg,
     },
+    {
+        name: 'Weather App',
+        desc: '',
+        tags: ['Vue 3', 'TailwindCSS', 'Vite', 'Vengeance UI'],
+        repo: '',
+        link: '',
+        status: 'Personal Project',
+        image: portfolioImg,
+    },
 ]
 
 const carouselItems = computed(() =>
