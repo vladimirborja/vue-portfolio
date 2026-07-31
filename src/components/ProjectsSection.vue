@@ -35,14 +35,15 @@ const projects = [
         image: portfolioImg,
     },
     {
-        name: 'Weather App',
-        desc: '',
-        tags: ['Vue 3', 'TailwindCSS', 'Vite', 'Vengeance UI'],
-        repo: '',
-        link: '',
+        name: 'Philippine Weather App',
+        desc: 'A modern, dynamic Vue 3 weather application tailored for Philippine cities with real-time conditions, location auto-detection, hourly & 5-day forecasts, severe weather warnings, and unit toggling.',
+        tags: ['Vue 3', 'TailwindCSS', 'Vite', 'OpenWeather API'],
+        repo: 'https://github.com/vladimirborja/weather-app',
+        link: 'http://localhost:5173',
         status: 'Personal Project',
         image: portfolioImg,
-    },
+    }
+
 ]
 
 const carouselItems = computed(() =>
@@ -73,25 +74,19 @@ const activeProject = computed(() => projects[activeIndex.value])
                 <FlipText text="Things I've built" :duration="2.8" />
             </h2>
 
-            <div class="rounded-3xl border border-gray-200/60 dark:border-white/10 bg-neutral-100/80 dark:bg-neutral-950/80 overflow-hidden">
+            <div
+                class="rounded-3xl border border-gray-200/60 dark:border-white/10 bg-neutral-100/80 dark:bg-neutral-950/80 overflow-hidden">
                 <div class="relative h-[560px] md:h-[640px] bg-neutral-200/50 dark:bg-neutral-900/60">
-                    <DiagonalCarousel
-                        :items="carouselItems"
-                        :loop="true"
-                        :slide-size="420"
-                        :slide-height="480"
-                        :rotation-step="22"
-                        :vertical-step="90"
-                        :inactive-scale="0.65"
-                        track-top="46%"
+                    <DiagonalCarousel :items="carouselItems" :loop="true" :slide-size="420" :slide-height="480"
+                        :rotation-step="22" :vertical-step="90" :inactive-scale="0.65" track-top="46%"
                         class-name="h-full min-h-0"
                         label-class-name="text-neutral-700 dark:text-neutral-200 font-medium"
                         controls-class-name="border-neutral-300/80 dark:border-white/10"
-                        @active-index-change="activeIndex = $event"
-                    />
+                        @active-index-change="activeIndex = $event" />
                 </div>
 
-                <div class="border-t border-gray-200/60 dark:border-white/10 bg-white/50 dark:bg-black/40 backdrop-blur-md p-6 md:p-8">
+                <div
+                    class="border-t border-gray-200/60 dark:border-white/10 bg-white/50 dark:bg-black/40 backdrop-blur-md p-6 md:p-8">
                     <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-4">
                         <span class="font-mono-custom text-green-600 dark:text-green-400 font-bold text-lg">
                             {{ activeProject.name }}
