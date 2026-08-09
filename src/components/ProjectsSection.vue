@@ -5,6 +5,8 @@ import DiagonalCarousel from './ui/DiagonalCarousel.vue'
 import seseImg from '../assets/images/sese.png'
 import ratingBlogImg from '../assets/images/wordpress.jpg'
 import portfolioImg from '../assets/images/web-portfolio.png'
+import jbSuarezImg from '../assets/images/jb-suarez-calc.png'
+import paywallCalcImg from '../assets/images/calcpro-paywall.png'
 
 const activeIndex = ref(0)
 
@@ -16,6 +18,22 @@ const projects = [
         repo: 'https://github.com/vladimirborja/Capstone_SESE',
         status: 'Capstone Project',
         image: seseImg,
+    },
+    {
+        name: 'JB Suarez Meme Calculator',
+        desc: 'A desktop calculator application built with Python and Tkinter featuring dark-mode emerald styling. When evaluating 2 + 2 = 4, it suppresses the numerical output and automatically opens and autoplays a JB Suarez meme video.',
+        tags: ['Python', 'Tkinter', 'AppleScript', 'Desktop App'],
+        repo: 'https://github.com/vladimirborja/calculator',
+        status: 'Personal Project',
+        image: jbSuarezImg,
+    },
+    {
+        name: 'CalcPro Paywall Calculator',
+        desc: 'A single-file HTML/CSS/JS web calculator with custom dark emerald glassmorphism aesthetics. When pressing equal (=), it displays a humorously strict paywall modal ("pili na hayop") offering monthly (₱499.99) and yearly (₱4,999.99) subscription plans with randomized failure messages.',
+        tags: ['HTML5', 'CSS3', 'JavaScript', 'UI/UX'],
+        repo: 'https://github.com/vladimirborja/calculator',
+        status: 'Personal Project',
+        image: paywallCalcImg,
     },
     {
         name: "Vladimir's Rating Blog",
@@ -43,7 +61,6 @@ const projects = [
         status: 'Personal Project',
         image: portfolioImg,
     }
-
 ]
 
 const carouselItems = computed(() =>
